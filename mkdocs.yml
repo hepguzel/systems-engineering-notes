@@ -1,0 +1,17 @@
+site_name: Junior Systems Engineering Notes
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Chapters:
+      - "Chapter 1 — System Overview": chapters/ch01-system-overview.md
+      - "Chapter 2 — Airframe & Structures": chapters/ch02-airframe-structures.md
+      - "Chapter 3 — Propulsion": chapters/ch03-propulsion.md
+      - "Chapter 4 — Avionics & Flight Control": chapters/ch04-avionics-flight-control.md
+      - "Chapter 5 — Electrical Power System": chapters/ch05-electrical-power.md
+      - "Chapter 6 — Communication & GCS": chapters/ch06-comms-gcs.md
+      - "Chapter 7 — Ground Segment & Workflow": chapters/ch07-ground-segment-workflow.md
+      - "Chapter 8 — Architecture Basics": chapters/ch08-architecture-basics.md
+      - "Chapter 9 — Detailed Architecture": chapters/ch09-detailed-architecture.md
+      - "Chapter 10 — SRS Basics": chapters/ch10-srs-basics.md
