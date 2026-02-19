@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../chapters/ch02-airframe-structures/">
       
       
         
@@ -19,7 +23,7 @@
     
     
       
-        <title>Chapter 1 — UAV System Overview - Junior Systems Engineering Notes</title>
+        <title>Chapter 1 — System Overview - Junior Systems Engineering Notes</title>
       
     
     
@@ -96,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Chapter 1 — UAV System Overview
+              Chapter 1 — System Overview
             
           </span>
         </div>
@@ -216,18 +220,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -248,7 +254,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -263,10 +269,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../ch01-system-overview/index.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 — System Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -282,6 +315,192 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-mission-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Mission Profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Mission Profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-mission-phases-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Mission Phases Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-power-on-and-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Power-On and Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-built-in-test-bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Built-In Test (BIT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mission-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Mission Upload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pre-arm-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Pre-Arm Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-arming-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Arming Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-launch-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Launch Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-autonomous-flight-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Autonomous Flight Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-terminal-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Terminal Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-end-of-mission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. End-of-Mission
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-system-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 System Boundaries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 System Boundaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inside-the-system-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inside the System Boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outside-the-system-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outside the System Boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
