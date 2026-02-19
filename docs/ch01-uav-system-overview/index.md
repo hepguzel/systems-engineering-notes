@@ -302,6 +302,7 @@ System boundaries help you:
 ### Inside the System Boundary
 
 1. **Air Vehicle**
+   
    - Airframe & Structures  
    - Propulsion System (motor/engine, ESC, fuel system)  
    - Avionics (flight controller, GNSS, IMU, magnetometer, air data sensors)  
@@ -310,11 +311,13 @@ System boundaries help you:
    - Payload (camera or mission module)  
 
 2. **Embedded Software**
+   
    - Flight control firmware  
    - Autopilot modes  
    - Safety logic (fail-safes, loss of link)  
 
 3. **Internal Data & Power Interfaces**
+   
    - All internal power, data, control lines, and mechanical mounts  
 
 ### Outside the System Boundary
@@ -322,6 +325,7 @@ System boundaries help you:
 The outside includes everything the UAV interacts with but does not design or physically contain.
 
 1. **Ground Control Station (GCS)**
+   
    - Laptop or tablet  
    - GCS software  
    - Telemetry radios  
@@ -332,12 +336,14 @@ The outside includes everything the UAV interacts with but does not design or ph
    - Mission commander  
 
 3. **Launch Equipment**
+   
    - Catapult  
    - Rocket-assisted launcher  
    - Runway or airfield  
    - Vertical launch stand  
 
 4. **Environment**
+   
    - Atmosphere (wind, temperature, pressure)  
    - Terrain  
    - GNSS satellite constellation  
