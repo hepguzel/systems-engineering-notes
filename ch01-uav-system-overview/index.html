@@ -1,0 +1,1116 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Chapter 1 — UAV System Overview - Junior Systems Engineering Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-1-uav-system-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Junior Systems Engineering Notes" class="md-header__button md-logo" aria-label="Junior Systems Engineering Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Junior Systems Engineering Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 1 — UAV System Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Junior Systems Engineering Notes" class="md-nav__button md-logo" aria-label="Junior Systems Engineering Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Junior Systems Engineering Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01-system-overview/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 — System Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapters/ch02-airframe-structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 — Airframe & Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapters/ch03-propulsion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 — Propulsion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapters/ch04-avionics-flight-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4 — Avionics & Flight Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapters/ch05-electrical-power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5 — Electrical Power System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapters/ch06-comms-gcs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6 — Communication & GCS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapters/ch07-ground-segment-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7 — Ground Segment & Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapters/ch08-architecture-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8 — Architecture Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapters/ch09-detailed-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9 — Detailed Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapters/ch10-srs-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — SRS Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-mission-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Mission Profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Mission Profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-mission-phases-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Mission Phases Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-power-on-and-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Power-On and Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-built-in-test-bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Built-In Test (BIT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mission-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Mission Upload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pre-arm-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Pre-Arm Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-arming-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Arming Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-launch-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Launch Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-autonomous-flight-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Autonomous Flight Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-terminal-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Terminal Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-end-of-mission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. End-of-Mission
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-system-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 System Boundaries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 System Boundaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inside-the-system-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inside the System Boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outside-the-system-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outside the System Boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-1-uav-system-overview">Chapter 1 — UAV System Overview</h1>
+<p>This chapter introduces the operational lifecycle of a single-use, fixed-wing expendable UAV platform. The mission profile is examined from initial power application through terminal phase and end-of-mission. Understanding this lifecycle is essential before defining system architecture, subsystem interfaces, or requirements, as each mission phase imposes distinct functional, safety, and performance constraints on the overall system design.</p>
+<hr />
+<h2 id="11-mission-profile">1.1 Mission Profile</h2>
+<p>Before defining architecture or requirements, we must understand the mission profile.</p>
+<p>A mission profile is a time-ordered sequence of operational phases that describes what the UAV does from the beginning of its operation until the end of its life.</p>
+<p>It defines:</p>
+<ul>
+<li>Which subsystems must exist  </li>
+<li>What sensors are required  </li>
+<li>What performance levels are necessary  </li>
+<li>How safety logic behaves  </li>
+<li>What requirements must be written  </li>
+<li>How the architecture must support each phase  </li>
+</ul>
+<p>For a single-use expendable UAV, the mission is typically short-duration, pre-planned, fully autonomous, low-cost, non-recoverable, and designed for terminal destruction or impact.</p>
+<h3 id="complete-mission-phases-overview">Complete Mission Phases Overview</h3>
+<p>For this platform, the mission consists of the following phases:</p>
+<ul>
+<li>Power-On and Initialization  </li>
+<li>Built-In Test (BIT)  </li>
+<li>Mission Upload  </li>
+<li>Pre-Arm Checks  </li>
+<li>Arming  </li>
+<li>Launch  </li>
+<li>Autonomous Flight  </li>
+<li>Terminal Phase  </li>
+<li>End-of-Mission  </li>
+</ul>
+<p>Each phase activates different subsystems and introduces different risks. System architecture must support all phases coherently.</p>
+<hr />
+<h3 id="1-power-on-and-initialization">1. Power-On and Initialization</h3>
+<p>The mission begins when electrical power is applied to the UAV.</p>
+<p>This typically occurs when:</p>
+<ul>
+<li>The battery is connected  </li>
+<li>External ground power is applied  </li>
+</ul>
+<p>At this moment:</p>
+<ul>
+<li>The flight control computer boots  </li>
+<li>Firmware starts executing  </li>
+<li>Configuration parameters are loaded  </li>
+<li>All connected sensors begin initialization  </li>
+</ul>
+<p>Typical sensor startup actions include:</p>
+<ul>
+<li>IMU initialization  </li>
+<li>Gyroscope bias estimation  </li>
+<li>Accelerometer offset correction  </li>
+<li>Gravity vector detection  </li>
+<li>Barometer stabilization  </li>
+<li>GNSS satellite acquisition  </li>
+<li>Air data sensor zeroing (if present)  </li>
+<li>Servo output checks  </li>
+<li>ESC or engine controller self-test  </li>
+</ul>
+<p>This phase ensures that the system transitions from a powered but inactive state to an operational standby state.</p>
+<hr />
+<h3 id="2-built-in-test-bit">2. Built-In Test (BIT)</h3>
+<p>During startup, the UAV executes Built-In Tests.</p>
+<p>The objective of BIT is to verify that:</p>
+<ul>
+<li>All subsystems are communicating correctly  </li>
+<li>No hardware faults are detected  </li>
+<li>Sensor values are within expected ranges  </li>
+<li>No critical flags are raised  </li>
+</ul>
+<p>If any major failure is detected:</p>
+<ul>
+<li>The system prevents progression to arming  </li>
+<li>The operator is notified  </li>
+<li>The mission cannot proceed  </li>
+</ul>
+<p>BIT is the first architectural safety gate. Every subsystem has an interface and expected behavior; by this means you verify that all subsystems report “healthy.”</p>
+<hr />
+<h3 id="3-mission-upload">3. Mission Upload</h3>
+<p>After successful initialization, the mission plan is uploaded from the Ground Control Station (GCS).</p>
+<p>The mission data typically includes:</p>
+<ul>
+<li>Waypoints (latitude, longitude, altitude)  </li>
+<li>Speed commands (climb, cruise, terminal speed)  </li>
+<li>Behavior definitions (impact, climb-dive, fast pass)  </li>
+<li>Fail-safe logic (loss-of-link timeout, hold/continue logic, termination rules)  </li>
+<li>Special mission parameters (e.g., radar cross-section pattern, specific maneuver timing, altitude constraints)  </li>
+</ul>
+<p>Example mission sequence:</p>
+<ul>
+<li>WP1: Climb to 200 m  </li>
+<li>WP2: Cruise segment  </li>
+<li>WP3: Turn point  </li>
+<li>WP4: Terminal coordinate (impact point)  </li>
+</ul>
+<p>After receiving the mission, the autopilot:</p>
+<ul>
+<li>Saves the mission  </li>
+<li>Checks whether the mission is valid  </li>
+<li>Computes the expected flight path  </li>
+<li>Validates safe minimum altitudes  </li>
+<li>Aligns required launch direction  </li>
+<li>Pre-calculates where to turn  </li>
+<li>Calculates estimated time to reach terminal point  </li>
+</ul>
+<p>If any validation fails:</p>
+<ul>
+<li>The UAV refuses to arm  </li>
+<li>The operator must correct the mission  </li>
+</ul>
+<hr />
+<h3 id="4-pre-arm-checks">4. Pre-Arm Checks</h3>
+<p>Before transitioning to an active state, the UAV performs automatic pre-arm checks.</p>
+<p>Typical conditions include:</p>
+<ul>
+<li>GNSS position lock achieved  </li>
+<li>IMU attitude stable  </li>
+<li>No active fault flags  </li>
+<li>Power system voltage within limits  </li>
+<li>No sensor timeout conditions  </li>
+<li>Vehicle stationary (if required)  </li>
+</ul>
+<p>If any condition fails:</p>
+<ul>
+<li>ARMED state remains FALSE  </li>
+<li>Propulsion is inhibited  </li>
+<li>Operator receives warning  </li>
+</ul>
+<p>Pre-arm checks prevent unsafe launch attempts.</p>
+<hr />
+<h3 id="5-arming-phase">5. Arming Phase</h3>
+<p>The Arming Phase is a safety-critical transition.</p>
+<p>Arming is defined as the transition from a safe, inhibited configuration to an operational configuration in which propulsion and control outputs are enabled.</p>
+<p>When <code>ARMED = TRUE</code>:</p>
+<ul>
+<li>Throttle commands activate propulsion  </li>
+<li>Control surfaces respond fully  </li>
+<li>Flight termination logic becomes active  </li>
+<li>The system is ready for launch  </li>
+</ul>
+<p>When <code>ARMED = FALSE</code>:</p>
+<ul>
+<li>Propulsion is disabled  </li>
+<li>Control outputs may be limited  </li>
+<li>Certain subsystems remain inhibited  </li>
+</ul>
+<p>Arming may require:</p>
+<ul>
+<li>Operator command (via GCS or hardware switch)  </li>
+<li>Physical safety plug removal  </li>
+<li>Confirmation of pre-arm criteria  </li>
+</ul>
+<p>Arming represents a formal architectural boundary between the ground-safe state and the flight-ready state.</p>
+<p>In system engineering terms, it is a controlled state transition with safety interlocks.</p>
+<hr />
+<h3 id="6-launch-phase">6. Launch Phase</h3>
+<p>Launch is the moment when the UAV transitions from a static object to a flying aircraft.</p>
+<p>Launch is the most stressful part of the mission because:</p>
+<ul>
+<li>High acceleration occurs  </li>
+<li>Airflow becomes chaotic  </li>
+<li>Aerodynamic forces build rapidly  </li>
+<li>Control surfaces may initially be ineffective  </li>
+<li>IMU experiences shock loading  </li>
+<li>GNSS signal may temporarily degrade  </li>
+<li>Autopilot must switch flight modes at the correct moment  </li>
+<li>Thrust becomes required immediately  </li>
+</ul>
+<p>For expendable UAVs, common launch methods include:</p>
+<ul>
+<li>Catapult launch  </li>
+<li>Rocket-assisted launch  </li>
+<li>Runway takeoff  </li>
+<li>Vertical launch  </li>
+</ul>
+<p><strong>Catapult Launch</strong></p>
+<p>Catapult launch systems can be elastic (rubber band sling), pneumatic (air pressure piston), or rail launcher with bungee assist. The UAV typically accelerates between 5–15 g (sometimes up to 20 g), and this acceleration phase lasts approximately 0.3–1.0 seconds. The flight controller operates in a dedicated “launch mode,” in which control surfaces may be fixed, the autopilot temporarily limits active corrections, and sensors anticipate shock loading. The UAV detects launch through acceleration above a threshold, rising airspeed, and rail switch logic. The motor or engine provides full power, the IMU experiences high shock, and the UAV leaves the rail.</p>
+<p><strong>Rocket-Assisted Launch (RAL)</strong></p>
+<p>Rocket-Assisted Launch is used for heavier expendable drones where the electric motor is not sufficient, the catapult length is too short, or an immediate steep climb is required. The UAV is placed on a rail, the booster ignites, strong initial thrust is generated, the UAV accelerates rapidly, the booster burns out and separates, and the main propulsion system takes over.</p>
+<p><strong>Vertical Launch</strong></p>
+<p>In a vertical launch configuration, the UAV lifts off vertically using dedicated lift motors or a combined propulsion system capable of generating upward thrust. The vehicle climbs straight up until it reaches a safe altitude, then transitions into forward flight. The most critical challenge in vertical launch is the transition phase, when the aircraft shifts from vertical lift to aerodynamic flight. During this transition, control logic must reconfigure smoothly while aerodynamic surfaces gradually become effective.</p>
+<p><strong>Runway Takeoff</strong></p>
+<p>In runway takeoff, the UAV accelerates along a prepared surface until sufficient airspeed is reached for lift-off. Acceleration is gradual and controlled, and aerodynamic surfaces become effective progressively as airspeed increases. Because there is no sudden shock or extreme acceleration, IMU measurements remain stable and navigation filters operate under normal conditions. The key requirement is sufficient runway length and reliable propulsion performance.</p>
+<hr />
+<h3 id="7-autonomous-flight-phase">7. Autonomous Flight Phase</h3>
+<p>After achieving safe airspeed and stable attitude, the UAV enters autonomous flight.</p>
+<p>During this phase, the system:</p>
+<ul>
+<li>Keeps itself stable  </li>
+<li>Follows mission plan  </li>
+<li>Navigates between waypoints  </li>
+<li>Manages altitude, speed, and thermal behavior  </li>
+<li>Reacts to wind and disturbances  </li>
+<li>Monitors all subsystems  </li>
+<li>Executes fail-safes  </li>
+</ul>
+<p>Navigation between waypoints is typically performed using guidance algorithms such as L1 navigation. L1 navigation is used by ArduPilot, PX4, many commercial autopilots, and several proprietary autopilot systems. It creates a smooth, curved flight path instead of sharp angular turns.</p>
+<p>The autopilot continuously:</p>
+<ul>
+<li>Estimates current position  </li>
+<li>Computes heading to next waypoint  </li>
+<li>Adjusts roll, pitch, and throttle  </li>
+<li>Switches to next waypoint upon reaching acceptance radius  </li>
+</ul>
+<p>This phase represents steady-state mission execution.</p>
+<hr />
+<h3 id="8-terminal-phase">8. Terminal Phase</h3>
+<p>The terminal phase depends on mission design.</p>
+<p>Possible terminal behaviors include:</p>
+<ul>
+<li>Direct impact into target coordinate  </li>
+<li>Climb-and-dive profile  </li>
+<li>Controlled crash in predefined safe zone  </li>
+<li>Flight Termination System (FTS) activation  </li>
+</ul>
+<p>In expendable systems, recovery is not expected.</p>
+<p>Terminal logic must be deterministic and predictable.</p>
+<hr />
+<h3 id="9-end-of-mission">9. End-of-Mission</h3>
+<p>For a single-use expendable UAV:</p>
+<ul>
+<li>There is no recovery  </li>
+<li>The vehicle is intentionally destroyed or impacted  </li>
+<li>Mission ends upon impact or termination  </li>
+</ul>
+<p>System requirements must clearly define:</p>
+<ul>
+<li>Acceptable end-of-life conditions  </li>
+<li>Safety perimeter  </li>
+<li>Failure contingencies  </li>
+</ul>
+<hr />
+<h2 id="12-system-boundaries">1.2 System Boundaries</h2>
+<p>The system boundary of a UAV defines the separation between internal system elements and external actors.</p>
+<p>The system boundary defines:</p>
+<ul>
+<li>What is inside the UAV system (elements you design, control, and are responsible for)  </li>
+<li>What is outside the system (external actors and systems the UAV interacts with but does not design or physically contain)  </li>
+</ul>
+<p>System boundaries help you:</p>
+<ul>
+<li>Identify what you design and clarify what you are responsible for  </li>
+<li>Limit scope creep  </li>
+<li>Structure SRS and architecture documents  </li>
+<li>Coordinate with cross-functional teams  </li>
+<li>Define what belongs in the SRS or the IDS (Interface Definition Specification)  </li>
+</ul>
+<h3 id="inside-the-system-boundary">Inside the System Boundary</h3>
+<ol>
+<li><strong>Air Vehicle</strong></li>
+<li>Airframe &amp; Structures  </li>
+<li>Propulsion System (motor/engine, ESC, fuel system)  </li>
+<li>Avionics (flight controller, GNSS, IMU, magnetometer, air data sensors)  </li>
+<li>Electrical power system (battery, PDB/regulators, wiring harness)  </li>
+<li>Control actuators (servos)  </li>
+<li>
+<p>Payload (camera or mission module)  </p>
+</li>
+<li>
+<p><strong>Embedded Software</strong></p>
+</li>
+<li>Flight control firmware  </li>
+<li>Autopilot modes  </li>
+<li>
+<p>Safety logic (fail-safes, loss of link)  </p>
+</li>
+<li>
+<p><strong>Internal Data &amp; Power Interfaces</strong></p>
+</li>
+<li>All internal power, data, control lines, and mechanical mounts  </li>
+</ol>
+<h3 id="outside-the-system-boundary">Outside the System Boundary</h3>
+<p>The outside includes everything the UAV interacts with but does not design or physically contain.</p>
+<ol>
+<li><strong>Ground Control Station (GCS)</strong></li>
+<li>Laptop or tablet  </li>
+<li>GCS software  </li>
+<li>
+<p>Telemetry radios  </p>
+</li>
+<li>
+<p><strong>Operators</strong></p>
+</li>
+<li>UAV pilot/operator  </li>
+<li>Launch crew  </li>
+<li>
+<p>Mission commander  </p>
+</li>
+<li>
+<p><strong>Launch Equipment</strong></p>
+</li>
+<li>Catapult  </li>
+<li>Rocket-assisted launcher  </li>
+<li>Runway or airfield  </li>
+<li>
+<p>Vertical launch stand  </p>
+</li>
+<li>
+<p><strong>Environment</strong></p>
+</li>
+<li>Atmosphere (wind, temperature, pressure)  </li>
+<li>Terrain  </li>
+<li>GNSS satellite constellation  </li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
