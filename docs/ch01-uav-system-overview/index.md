@@ -331,6 +331,7 @@ The outside includes everything the UAV interacts with but does not design or ph
    - Telemetry radios  
 
 2. **Operators**
+   
    - UAV pilot/operator  
    - Launch crew  
    - Mission commander  

@@ -1,17 +1,19 @@
-# Welcome to MkDocs
+# Systems Engineering Notes  
+*A Structured Self-Training Program in Systems Thinking*
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+This site documents a progressive study journey through practical systems engineering concepts, using a single use, fixed wing expendable UAV platform.
 
-## Commands
+The objective is not deep specialization in individual subsystems, but understanding how subsystems connect, interact, and integrate into a coherent system.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+The study progresses from:
 
-## Project layout
+- System overview and mission context  
+- Subsystem fundamentals (airframe, propulsion, avionics, power, communication)  
+- Architecture thinking  
+- Requirement structuring (SRS)  
+- Interface definition (IDS)  
+- Documentation coherence and integration logic  
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+These notes are written to clarify systems thinking through structured progression.
+
+

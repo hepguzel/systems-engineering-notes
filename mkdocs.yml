@@ -5,7 +5,7 @@ theme:
 nav:
   - Home: index.md
   - Chapters:
-      - "Chapter 1 — System Overview": ch01-system-overview/index.md
+      - "Chapter 1 — System Overview": ch01-uav-system-overview/index.md
       - "Chapter 2 — Airframe & Structures": chapters/ch02-airframe-structures.md
       - "Chapter 3 — Propulsion": chapters/ch03-propulsion.md
       - "Chapter 4 — Avionics & Flight Control": chapters/ch04-avionics-flight-control.md
