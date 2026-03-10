@@ -303,22 +303,22 @@ System boundaries help you:
 
 1. **Air Vehicle**
    
-   - Airframe & Structures  
-   - Propulsion System (motor/engine, ESC, fuel system)  
-   - Avionics (flight controller, GNSS, IMU, magnetometer, air data sensors)  
-   - Electrical power system (battery, PDB/regulators, wiring harness)  
-   - Control actuators (servos)  
-   - Payload (camera or mission module)  
+      - Airframe & Structures  
+      - Propulsion System (motor/engine, ESC, fuel system)  
+      - Avionics (flight controller, GNSS, IMU, magnetometer, air data sensors)  
+      - Electrical power system (battery, PDB/regulators, wiring harness)  
+      - Control actuators (servos)  
+      - Payload (camera or mission module)  
 
 2. **Embedded Software**
    
-   - Flight control firmware  
-   - Autopilot modes  
-   - Safety logic (fail-safes, loss of link)  
+      - Flight control firmware  
+      - Autopilot modes  
+      - Safety logic (fail-safes, loss of link)  
 
 3. **Internal Data & Power Interfaces**
    
-   - All internal power, data, control lines, and mechanical mounts  
+      - All internal power, data, control lines, and mechanical mounts  
 
 ### Outside the System Boundary
 
@@ -326,25 +326,26 @@ The outside includes everything the UAV interacts with but does not design or ph
 
 1. **Ground Control Station (GCS)**
    
-   - Laptop or tablet  
-   - GCS software  
-   - Telemetry radios  
+       - Laptop or tablet  
+      - GCS software  
+      - Telemetry radios  
 
 2. **Operators**
    
-   - UAV pilot/operator  
-   - Launch crew  
-   - Mission commander  
+      - UAV pilot/operator  
+      - Launch crew  
+      - M ission commander  
 
 3. **Launch Equipment**
    
-   - Catapult  
-   - Rocket-assisted launcher  
-   - Runway or airfield  
-   - Vertical launch stand  
+      - Catapult  
+      - Rocket-assisted launcher  
+      - Runway or airfield  
+      - Vertical launch stand  
 
 4. **Environment**
    
-   - Atmosphere (wind, temperature, pressure)  
-   - Terrain  
-   - GNSS satellite constellation  
+      - Atmosphere (wind, temperature, pressure)  
+      - Terrain  
+      - GNSS satellite constellation  
+  
