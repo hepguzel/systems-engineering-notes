@@ -63,15 +63,6 @@ For this reason, system engineers try to place mass-variable components as close
 
 ---
 ## 2. Wings
-The wing is the primary lift-generating surface of the UAV. It is attached to the fuselage and extends laterally on both sides.
-Several geometric terms must be clearly understood:
-
-- Span: the total distance from one wing tip to the other.
-- Chord: the distance from the leading edge to the trailing edge.
-- Wing root: the part of the wing that connects to the fuselage.
-- Wing tip: the outermost end of the wing.
-
-### Wing Geometry
 
 The wing is the primary lift-generating surface of the UAV.
 
@@ -88,12 +79,12 @@ Several geometric terms must be clearly understood:
 
 These terms are fundamental because they are used in discussions about performance, stability, and control authority. 
 
-## 2.1. Wing Layout
+### 2.1. Wing Layout
 
 The wing layout determines how lift forces enter the airframe and how those forces are transmitted into the fuselage. Regardless of aerodynamic performance, the wing must provide a structurally efficient load path from distributed lift forces into a limited number of attachment points at the fuselage.
 These attachment points must interface mechanically with fuselage frames or bulkheads that are designed to carry bending and torsional loads without excessive deformation.
 
-### 2.1.1 High-Wing Layout
+#### 2.1.1 High-Wing Layout
 
 In a high-wing layout, the wing is mounted above the fuselage. Lift forces are transferred downward into the fuselage through relatively short load paths. This often improves lateral stability and simplifies internal packaging.
 
@@ -127,7 +118,7 @@ Low-wing layouts are less common in expendable UAVs unless driven by propulsion 
 
 #### 2.2.1 Straight Wing
 
-##### Pysical Characteristics
+##### Physical Characteristics
 
 - High lift at low speeds.
 - Simple manufacturing (foam, composites, plywood ribs).
@@ -142,7 +133,7 @@ Low-wing layouts are less common in expendable UAVs unless driven by propulsion 
 
 #### 2.2.2 Swept Wing
 
-##### Pysical Characteristics
+##### Physical Characteristics
 
 - Reduces drag at higher speeds.
 - Delays tip stall by lowering effective angle of attack.
@@ -164,7 +155,7 @@ Low-wing layouts are less common in expendable UAVs unless driven by propulsion 
 
 Simple rectangular wing is a simplified form of the straight wing.
 
-##### Pysical Characteristics
+##### Physical Characteristics
 
 - Easiest to manufacture.
 - Constant chord simplifies control surface sizing.

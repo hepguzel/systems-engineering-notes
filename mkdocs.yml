@@ -15,3 +15,8 @@ nav:
       #- "Chapter 8 — Architecture Basics": ch08-architecture-basics.md
       #- "Chapter 9 — Detailed Architecture": ch09-detailed-architecture.md
       #- "Chapter 10 — SRS Basics": ch10-srs-basics.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 2
