@@ -46,7 +46,7 @@ If the required motor current exceeds the battery’s discharge capability, exce
 Battery discharge capability is usually expressed using C-rating.
 The relation is:
 
-$$I_{max} = C_{rating} \cdot \text{capacity}$$
+\[I_{max} = C_{rating} \cdot \text{capacity}\]
 
 Example:  = 5Ah
 battery rating = 20C
@@ -58,17 +58,17 @@ So the battery can theoretically deliver 100A safely.
 Voltage sag describes the temporary reduction in battery output voltage when high current is drawn by the propulsion system.
 Voltage sag results primarily from the battery’s internal resistance and becomes more pronounced as current demand increases or the battery state of charge decreases. 
 
-$$V_{real} = V_{nominal} - I \cdot R_{internal}$$
+\[V_{real} = V_{nominal} - I \cdot R_{internal}\]
 
 Where:
 
-$V_{real}$ = actual battery voltage under load 
+\(V_{real}\) = actual battery voltage under load 
 
-$V_{nominal}$ = reference (or label) battery voltage
+\(V_{nominal}\) = reference (or label) battery voltage
 
 I = current 
 
-$R_{internal}$ =battery internal resistance
+\(R_{internal}\) =battery internal resistance
 
 Excessive voltage sag can reduce motor thrust and may push the electrical system below safe operating limits for avionics or control electronics.
 
