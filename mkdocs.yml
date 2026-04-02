@@ -7,7 +7,7 @@ nav:
   - Chapters:
       - "Chapter 1 — System Overview": ch01-uav-system-overview/index.md
       - "Chapter 2 — Airframe & Structures": ch02-airframe-structures/index.md
-      #- "Chapter 3 — Propulsion": ch03-propulsion.md
+      - "Chapter 3 — Propulsion": ch03-propulsion-system/index.md
       #- "Chapter 4 — Avionics & Flight Control": ch04-avionics-flight-control.md
       #- "Chapter 5 — Electrical Power System": ch05-electrical-power.md
       #- "Chapter 6 — Communication & GCS": ch06-comms-gcs.md
@@ -20,3 +20,11 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 2
+
+  - pymdownx.arithmatex:
+      generic: true
+
+      
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
