@@ -574,12 +574,12 @@ So the battery can theoretically deliver 100A safely.</p>
 <p>Voltage sag describes the temporary reduction in battery output voltage when high current is drawn by the propulsion system.
 Voltage sag results primarily from the battery’s internal resistance and becomes more pronounced as current demand increases or the battery state of charge decreases. </p>
 <div class="arithmatex">\[V_{real} = V_{nominal} - I \cdot R_{internal}\]</div>
-<p>Where:
-<span class="arithmatex">\(V_{real}\)</span> = actual battery voltage under load 
-<span class="arithmatex">\(V_{nominal}\)</span> = reference (or label) battery voltage
-I = current 
-<span class="arithmatex">\(R_{internal}\)</span> =battery internal resistance
-Excessive voltage sag can reduce motor thrust and may push the electrical system below safe operating limits for avionics or control electronics.</p>
+<p>Where:</p>
+<p><span class="arithmatex">\(V_{real}\)</span> = actual battery voltage under load </p>
+<p><span class="arithmatex">\(V_{nominal}\)</span> = reference (or label) battery voltage</p>
+<p>I = current </p>
+<p><span class="arithmatex">\(R_{internal}\)</span> =battery internal resistance</p>
+<p>Excessive voltage sag can reduce motor thrust and may push the electrical system below safe operating limits for avionics or control electronics.</p>
 <h4 id="what-are-undervoltage-cutoffs">What are undervoltage cutoffs?<a class="headerlink" href="#what-are-undervoltage-cutoffs" title="Permanent link">&para;</a></h4>
 <p>Undervoltage cutoff is a protective mechanism implemented in ESCs or power management systems to prevent the battery from being discharged below a safe voltage threshold. 
 When battery voltage falls below this limit, the ESC may reduce motor power or shut down the motor entirely. While this protects the battery from damage, it can also result in sudden loss of propulsion if the system is not designed with sufficient voltage margin.</p>
