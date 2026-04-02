@@ -1,0 +1,1053 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ch02-airframe-structures/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Chapter 3 — Propulsion - Systems Engineering Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Systems Engineering Notes" class="md-header__button md-logo" aria-label="Systems Engineering Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Systems Engineering Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 3 — Propulsion
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Systems Engineering Notes" class="md-nav__button md-logo" aria-label="Systems Engineering Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Systems Engineering Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01-uav-system-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 — System Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02-airframe-structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 — Airframe & Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 — Propulsion
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 — Propulsion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-electric-propulsion-systems-for-expendable-uavs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Electric Propulsion Systems for Expendable UAVs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-gasoline-two-stroke-propulsion-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Gasoline Two-Stroke Propulsion Systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-fuel-system-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Fuel System Fundamentals
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-electric-propulsion-systems-for-expendable-uavs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Electric Propulsion Systems for Expendable UAVs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-gasoline-two-stroke-propulsion-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Gasoline Two-Stroke Propulsion Systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-fuel-system-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Fuel System Fundamentals
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Chapter 3 — Propulsion</h1>
+
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The propulsion subsystem directly supports mission objectives such as takeoff acceleration, climb capability, cruise speed, and terminal maneuverability. For expendable UAVs, additional priorities include robustness, tolerance to manufacturing variability, and predictable failure behavior rather than long-term maintainability.
+The propulsion subsystem is responsible for generating thrust within defined performance envelopes while respecting electrical, thermal, mechanical, and control constraints imposed by the overall UAV system.</p>
+<h4 id="what-is-tolerance-to-manufacturing-variability">What is tolerance to manufacturing variability?<a class="headerlink" href="#what-is-tolerance-to-manufacturing-variability" title="Permanent link">&para;</a></h4>
+<p>It is normal that two UAVs produced according to the same design are not exactly identical. The same applies to motor–ESC sets. The system must remain robust and capable of completing the mission despite such small differences.
+Tolerance to manufacturing variability is particularly important for expendable UAVs, because for expendable UAVs;
+- production is typically serial production
+- cost pressure is high
+- individual calibration or manual tuning is limited
+- long maintenance or fine-tuning cycles are not expected.
+This leads to the following design philosophy: 
+1- wide operating ranges
+2- conservative component selection
+3- power and thermal design with margin
+4- simple and repeatable architecture.</p>
+<hr />
+<h2 id="1-electric-propulsion-systems-for-expendable-uavs">1. Electric Propulsion Systems for Expendable UAVs<a class="headerlink" href="#1-electric-propulsion-systems-for-expendable-uavs" title="Permanent link">&para;</a></h2>
+<p>Electric propulsion systems are widely used in expendable and target UAVs due to their simplicity, reliability, low acoustic signature, and minimal mechanical complexity.
+Electric propulsion systems offer several architectural advantages. Control is simple and deterministic, as thrust is proportional to throttle command within predictable limits. There is no warm-up, ignition sequence, or fuel mixture variability. This simplifies operational procedures and reduces coupling between propulsion and mission timing.
+However, electric propulsion introduces specific system-level constraints. High instantaneous current draw can stress wiring, connectors, and power distribution. Electromagnetic interference generated by ESC switching can affect avionics if grounding and routing are not properly controlled. Thermal dissipation of motor and ESC must be addressed, especially in enclosed fuselage installations where airflow is limited.
+From a system-engineering perspective, electric propulsion should be treated not merely as a motor, but as an integrated subsystem that converts stored electrical energy into controlled thrust while interfacing cleanly with avionics, power, and structural subsystems.
+At system level, an electric propulsion chain consists of </p>
+<ul>
+<li>energy source (battery)</li>
+<li>power and control element (Electronic Speed Controller, ESC)</li>
+<li>electromechanical actuator (brushless DC motor)</li>
+<li>an aerodynamic load (propeller).</li>
+</ul>
+<h3 id="11-battery">1.1 Battery<a class="headerlink" href="#11-battery" title="Permanent link">&para;</a></h3>
+<p>The battery is an inseparable part of electric propulsion performance. Battery internal resistance, discharge capability, and voltage sag under load directly affect available motor power. From a propulsion perspective, the system engineer is less concerned with battery chemistry details and more concerned with whether the propulsion system can draw peak current without triggering undervoltage cutoffs, ESC resets, or flight-critical brownouts.</p>
+<h4 id="what-is-battery-internal-resistance">What is battery internal resistance?<a class="headerlink" href="#what-is-battery-internal-resistance" title="Permanent link">&para;</a></h4>
+<p>Battery internal resistance represents the electrical resistance inside the battery that opposes current flow. When the propulsion system draws high current, this internal resistance causes a voltage drop within the battery itself.</p>
+<h4 id="what-is-discharge-capability">What is discharge capability?<a class="headerlink" href="#what-is-discharge-capability" title="Permanent link">&para;</a></h4>
+<p>Discharge capability refers to the maximum current a battery can safely supply to the propulsion system. It determines whether the battery can support peak motor power during demanding flight conditions such as launch or climb. 
+If the required motor current exceeds the battery’s discharge capability, excessive voltage drop, overheating, or protection shutdown may occur, reducing available thrust and potentially compromising the mission.
+Battery discharge capability is usually expressed using C-rating.
+The relation is:</p>
+<div class="arithmatex">\[I_{max} = C_{rating} \cdot \text{capacity}\]</div>
+<p>Example:  = 5Ah
+battery rating = 20C
+Maximum current = 5 Ah x 20 = 100 A
+So the battery can theoretically deliver 100A safely.</p>
+<h4 id="what-is-voltage-sag">What is voltage sag?<a class="headerlink" href="#what-is-voltage-sag" title="Permanent link">&para;</a></h4>
+<p>Voltage sag describes the temporary reduction in battery output voltage when high current is drawn by the propulsion system.
+Voltage sag results primarily from the battery’s internal resistance and becomes more pronounced as current demand increases or the battery state of charge decreases. </p>
+<div class="arithmatex">\[V_{real} = V_{nominal} - I \cdot R_{internal}\]</div>
+<p>Where:
+<span class="arithmatex">\(V_{real}\)</span> = actual battery voltage under load 
+<span class="arithmatex">\(V_{nominal}\)</span> = reference (or label) battery voltage
+I = current 
+<span class="arithmatex">\(R_{internal}\)</span> =battery internal resistance
+Excessive voltage sag can reduce motor thrust and may push the electrical system below safe operating limits for avionics or control electronics.</p>
+<h4 id="what-are-undervoltage-cutoffs">What are undervoltage cutoffs?<a class="headerlink" href="#what-are-undervoltage-cutoffs" title="Permanent link">&para;</a></h4>
+<p>Undervoltage cutoff is a protective mechanism implemented in ESCs or power management systems to prevent the battery from being discharged below a safe voltage threshold. 
+When battery voltage falls below this limit, the ESC may reduce motor power or shut down the motor entirely. While this protects the battery from damage, it can also result in sudden loss of propulsion if the system is not designed with sufficient voltage margin.</p>
+<h4 id="what-is-esc-resets">What is ESC resets?<a class="headerlink" href="#what-is-esc-resets" title="Permanent link">&para;</a></h4>
+<p>ESC resets occur when the voltage supplied to the electronic speed controller momentarily drops below the minimum operating level required by its internal electronics. 
+In such cases, the ESC may reboot or temporarily stop driving the motor phases. During flight this can cause abrupt thrust interruptions, which may destabilize the vehicle or lead to loss of control in systems that rely on continuous propulsion.</p>
+<h4 id="what-is-flight-critical-brownouts">What is flight-critical brownouts?<a class="headerlink" href="#what-is-flight-critical-brownouts" title="Permanent link">&para;</a></h4>
+<p>A brownout occurs when system voltage drops low enough to disrupt the operation of avionics components such as the flight controller, sensors or communication systems. 
+Unlike propulsion-only interruptions, brownouts affect the vehicle’s ability to maintain control or navigate properly. In extreme cases the flight controller may reboot, leading to temporary loss of stabilization and potentially catastrophic mission failure.
+For this reason, propulsion power systems must be designed with sufficient electrical margin to prevent voltage collapse under peak load conditions.</p>
+<h3 id="12-electronic-speed-controller-esc">1.2 Electronic Speed Controller (ESC)<a class="headerlink" href="#12-electronic-speed-controller-esc" title="Permanent link">&para;</a></h3>
+<p>The Electronic Speed Controller (ESC) acts as both a power converter and a control interface within the electric propulsion system. It translates low-power throttle commands from the flight control computer into high-current, three-phase drive signals required by the brushless motor. In this sense, the ESC bridges the avionics domain and the high-power electrical domain of the propulsion system.
+Positioned between the battery and the motor, the ESC converts the battery’s direct current (DC) into a controlled three-phase alternating current that drives the motor windings. By adjusting the switching frequency and duty cycle of these signals, the ESC regulates motor rotational speed and torque, thereby controlling the thrust produced by the propeller.
+From a system-engineering perspective, the ESC performs several critical functions within the propulsion chain:</p>
+<ul>
+<li>Motor speed control: regulating motor RPM in response to throttle commands from the flight controller.</li>
+<li>Torque response: enabling rapid torque response for thrust control during flight maneuvers.</li>
+<li>Electrical power conversion: converting battery DC power into the three-phase signals required by the motor.</li>
+<li>Protection mechanisms: safeguarding the propulsion system through functions such as over-current protection, thermal protection, and low-voltage cutoff.</li>
+</ul>
+<p>Because the ESC directly interfaces with both the propulsion hardware and the avionics control system, its behavior under transient electrical loads, voltage drops, and thermal stress must be carefully considered. In many UAV architectures, ESC malfunction or reset can lead to immediate propulsion loss, making it a potential single-point failure within the propulsion subsystem.
+For this reason, ESC selection and integration must account for current margins, thermal management, and reliable communication with the flight control system to ensure stable propulsion performance under all expected operating conditions.</p>
+<h4 id="what-is-single-point-failure">What is single-point failure?<a class="headerlink" href="#what-is-single-point-failure" title="Permanent link">&para;</a></h4>
+<p>A single-point failure is a condition in which the failure of a single component, interface, or function directly leads to the loss of a required system function, without any redundancy, mitigation mechanism, or graceful degradation.
+An SPF is directly characterized by:</p>
+<ul>
+<li>Failure of an single element.</li>
+<li>Immediate or predictable loss of a required system function.</li>
+<li>Absence of alternative paths or backup mechanisms.</li>
+</ul>
+<p>Importantly, the SPF concept is architectural rather than probabilistic. A component may be highly reliable, but if its failure leads directly to loss of a critical function, it still constitutes a single-point failure.</p>
+<p>The followings are not single-point failure:</p>
+<ul>
+<li>Failures that can be bypassed through alternative paths</li>
+<li>Failures that only result in reduced performance</li>
+<li>Conditions from which the system can autonomously recover</li>
+<li>Failures affecting non-critical functions</li>
+</ul>
+<p>An SPF always implies loss of mission capability or violation of a safety objective.</p>
+<p>Example: ESC as a Single-Point Failure
+If the ESC is lost, thrust is lost. Therefore, ESC failure is a single-point failure.
+Loss of the ESC results in immediate loss of thrust. In the absence of redundancy, this leads directly to propulsion failure.
+Typical ESC failure mechanisms include:</p>
+<ul>
+<li>Overcurrent → ESC shutdown</li>
+<li>Voltage drop → ESC reset</li>
+<li>Thermal overload → power stage failure</li>
+<li>Firmware lockup</li>
+<li>EMI-induced control loss</li>
+<li>Connector or solder joint failure</li>
+</ul>
+<p>These mechanisms demonstrate that both electrical and physical causes can lead to the same system-level consequence: loss of propulsion.</p>
+<h4 id="spf-and-redundancy-in-expendable-uavs">SPF and Redundancy in expendable UAVs<a class="headerlink" href="#spf-and-redundancy-in-expendable-uavs" title="Permanent link">&para;</a></h4>
+<p>In traditional safety-critical systems such as aviation, railway, and nuclear systems, SPFs are systematically eliminated through redundancy and fault-tolerant design.
+In expendable or target UAVs, however, weight, cost, and simplicity constraints dominate. As a result, redundancy is often intentionally minimized or eliminated.
+Therefore, SPFs are not always removed but instead, identified, understood, accepted and mitigated where possible.</p>
+<h4 id="managing-accepted-single-point-failures">Managing accepted single-point failures<a class="headerlink" href="#managing-accepted-single-point-failures" title="Permanent link">&para;</a></h4>
+<p>When elimination of SPFs is not feasible, systems engineering focuses on reducing their likelihood and impact through:</p>
+<ol>
+<li>Design margin (Ensuring electrical, thermal, and mechanical margins to prevent operation near failure limits)</li>
+<li>Environmental control (Managing temperature, EMI, wiring layout, and grounding to reduce stress on critical components)</li>
+<li>Interface discipline (Ensuring signal integrity (e.g., clean PWM), proper separation of power domains, and prevention of brownouts) </li>
+<li>Predictable failure behavior (Designing the system such that failures occur in a controlled and foreseeable manner)</li>
+</ol>
+<h3 id="13-brushless-dc-motor">1.3 Brushless DC Motor<a class="headerlink" href="#13-brushless-dc-motor" title="Permanent link">&para;</a></h3>
+<p>The brushless DC motor is the core thrust-producing element. From a system perspective, the motor is characterized not only by its power rating, but also by its torque-speed relationship, efficiency map, thermal limits, and inertia. These characteristics influence acceleration response, steady-state thrust, and the electrical load imposed on the power system. Motor selection therefore impacts avionics power stability, battery sizing, and thermal margins.</p>
+<h4 id="what-is-torque-speed-relationship-of-a-brushless-dc-motor">What is Torque – Speed Relationship of a Brushless DC Motor?<a class="headerlink" href="#what-is-torque-speed-relationship-of-a-brushless-dc-motor" title="Permanent link">&para;</a></h4>
+<p>Even when an electric motor is not rotating, torque is produced on the rotor as soon as it is energized. Zero rotational speed does not imply zero torque.
+Electric motors can produce high torque at low speeds. As rotational speed increases, the torque that can be produced decreases. At very high speeds, approaching the no-load speed, the available torque approaches zero.
+The general characteristic of brushless DC motors can be summarized as follows:</p>
+<ol>
+<li>Speed = 0 (startup condition) → torque is maximum</li>
+<li>As speed increases → available torque decreases</li>
+<li>At very high speed (no-load speed) → torque ≈ 0</li>
+</ol>
+<p>As the motor speed increases, the torque capability decreases progressively. This is primarily due to the increase in back electromotive force (back-EMF), which reduces the effective current flowing through the motor windings. Since torque is proportional to current, a reduction in current leads to a reduction in torque.
+In practical terms:</p>
+<ul>
+<li>Higher torque demand requires higher current draw (torque ∝ current).</li>
+<li>If the propeller load is high, the motor demands more torque, which results in increased current draw.</li>
+<li>This increased current places higher stress on the ESC and the battery.</li>
+</ul>
+<h4 id="what-is-efficiency-map">What is Efficiency Map?<a class="headerlink" href="#what-is-efficiency-map" title="Permanent link">&para;</a></h4>
+<p>An efficiency map shows how efficiently the motor operates at different combinations of speed and torque. It provides a visual representation of motor performance across its operating range and makes the torque–speed relationship more explicit.
+Efficiency is defined as:
+Efficiency = Mechanical output power / Electrical input power
+A typical efficiency map shows:</p>
+<ul>
+<li>Low speed + high torque → low efficiency</li>
+<li>Very high speed → low efficiency</li>
+<li>An intermediate region (“sweet spot”) → high efficiency</li>
+</ul>
+<p>In UAV applications:</p>
+<ul>
+<li>During takeoff, the motor operates at high load for a short duration.</li>
+<li>During most of the mission, the UAV operates at cruise conditions with relatively steady thrust.</li>
+</ul>
+<p>Therefore, the motor–propeller combination should be selected such that the cruise operating point (typically 70–80% of mission time) lies within the high-efficiency region.</p>
+<p><img alt="efficiency map" src="fig_3_1.png" /></p>
+<p><em>Figure 3.1 — Efficiency Map</em></p>
+<p>If the cruise operating point lies in a low-efficiency region:</p>
+<ul>
+<li>Battery discharges faster</li>
+<li>Heat generation increases</li>
+<li>Endurance and range decrease</li>
+</ul>
+<p>In practice, complete efficiency maps are often not available for every motor.</p>
+<h4 id="what-are-thermal-limits">What are thermal limits?<a class="headerlink" href="#what-are-thermal-limits" title="Permanent link">&para;</a></h4>
+<p>Thermal limits define how much heat the motor can tolerate and how that heat is generated.
+Primary heat sources include:</p>
+<ul>
+<li>Resistive losses in windings (I²R losses)</li>
+<li>Magnetic (core) losses</li>
+<li>Mechanical losses (e.g., bearing friction)</li>
+</ul>
+<p>Thermal limits typically include:</p>
+<ul>
+<li>Maximum winding temperature</li>
+<li>Demagnetization limits of permanent magnets</li>
+<li>Continuous vs. peak power ratings</li>
+</ul>
+<p>Exceeding these limits can lead to:</p>
+<ul>
+<li>insulation degradation</li>
+<li>loss of magnetic performance</li>
+<li>permanent motor damage</li>
+</ul>
+<h4 id="what-is-inertia">What is inertia?<a class="headerlink" href="#what-is-inertia" title="Permanent link">&para;</a></h4>
+<p>Inertia represents the resistance of the rotating system – comprising the motor rotor and propeller – to changes in rotational speed.
+As inertia increases, changes in rotational speed become slower, and the system response time increases. This directly affects how quickly thrust can increase or decrease in response to throttle commands.
+From a system perspective, inertia influences:</p>
+<ul>
+<li>throttle response time</li>
+<li>rate of thrust increase and decrease</li>
+<li>stability of control loops</li>
+</ul>
+<p>Higher inertia results in a smoother but slower response, while lower inertia enables faster but more abrupt changes in thrust.
+Propeller geomerty has a strong influence on inertia. Larger and heavier propellers increase the overall rotational inertia of the system. As a result:</p>
+<ul>
+<li>Large propellers → higher inertia → slower but smoother response</li>
+<li>Small propellers → lower inertia → faster but more aggressive response</li>
+</ul>
+<p>For expendable UAV, higher inertia is often advantagenous because it provides stable and smooth thrust behavior, which can simplify control and improve robustness.
+However, inertia must be considered alongside motor torque capability and control system requirements during propulsion system design.</p>
+<h3 id="14-propeller">1.4 Propeller<a class="headerlink" href="#14-propeller" title="Permanent link">&para;</a></h3>
+<p>The propeller is the final energy conversion element, transforming shaft power into thrust. In system terms, the propeller defines the aerodynamic load seen by the motor and ESC. Propeller diameter, pitch, and blade count affect thrust, efficiency, noise, and current draw. A propulsion system cannot be evaluated without considering the propeller, because motor performance data is meaningless in isolation from its aerodynamic load.
+Propeller performance is often characterized using the advance ratio, which relates forward flight speed to rotational speed. This parameter determines the operating regime of the propeller and strongly influences efficiency.
+Propeller loading and efficiency differ significantly between static conditions (e.g., takeoff) and forward flight. A propeller optimized for static thrust may operate inefficiently in cruise, and vice versa.
+Propeller power requirements increase nonlinearly with thrust, meaning that small increases in thrust demand can result in disproportionately higher power consumption.
+Disk loading, defined as thrust per unit propeller disk area, is a key parameter influencing efficiency. Lower disk loading (larger propellers) generally improves propulsive efficiency but may be constrained by geometry and integration.</p>
+<h4 id="motor-propeller-matching">Motor – Propeller Matching<a class="headerlink" href="#motor-propeller-matching" title="Permanent link">&para;</a></h4>
+<p>Propeller selection is primarily driven by aerodynamic requirements, such as required thrust, flight speed, and mission profile. However, the selected propeller defines the mechanical load on the motor and therefore directly influences current draw, efficiency, and thermal behavior of the propulsion system. As a result, propeller selection must be performed in conjunction with motor and power system constraints.
+The motor and propeller must be selected as a coupled system, not as independent components. The propeller defines the aerodynamic load, while the motor must provide the required torque and rotational speed to drive that load efficiently and safely.
+From a system perspective, the propeller imposes a torque demand on the motor that increases with rotational speed and blade geometry (diameter, pitch, and airfoil characteristics). The motor responds to this demand by drawing current from the battery. Therefore, the motor-propeller combination directly determines:</p>
+<ul>
+<li>current draw from battery</li>
+<li>load on the ESC</li>
+<li>operating point on the motor efficiency map</li>
+<li>thermal loading of the propulsion system</li>
+</ul>
+<p>A mismatch between motor and propeller can lead to several undesirable conditions:</p>
+<ul>
+<li>overloading condition: a large or aggressive propeller may require more torque than the motor can efficiently deliver, resulting in excessive current draw, overheating, and potential ESC or battery stress.</li>
+<li>underloading condition: a small propeller may not fully utilize the motor’s capability, leading to inefficient operation at high speed and reduced thrust efficiency.</li>
+</ul>
+<p>In a properly matched system, the motor operates within its safe current and thermal limits, while the propeller produces the required thrust at an efficient operating point.
+For UAV applications, particular attention should be given to the cruise condition, where the system spends most of its operating time. The motor-propeller combination should be selected such that this operating point lies within the motor’s high-efficiency region.
+In practice, motor-propeller matching is often performed iteratively using:</p>
+<ul>
+<li>manufacturer data</li>
+<li>test measurements</li>
+<li>simplified analytical or numerical models</li>
+</ul>
+<p>Because complete motor maps and propeller performance data are often unavailable, engineering judgment and conservative design margins are essential.</p>
+<h2 id="2-gasoline-two-stroke-propulsion-systems">2. Gasoline Two-Stroke Propulsion Systems<a class="headerlink" href="#2-gasoline-two-stroke-propulsion-systems" title="Permanent link">&para;</a></h2>
+<p>Liquid fuels have a significantly higher energy density compared to batteries. The energy density of gasoline is approximately 43 MJ/kg, whereas Li-Po batteries typically range between 0.6 and 0.9 MJ/kg. This means that, for the same mass, gasoline can store roughly 40 to 70 times more energy than a battery.
+However, energy density alone is not sufficient to evaluate propulsion performance. While electric motors operate with efficiencies in the range of 85–95%, small gasoline engines typically achieve only 20–30% efficiency.
+In other words, although gasoline carries a large amount of energy, a significant portion of this energy is lost as heat during conversion. Despite this, gasoline propulsion remains advantageous for long-endurance missions.
+Gasoline two-stroke propulsion systems are commonly used in expendable UAVs when endurance, range, or fuel energy density becomes the dominant driver rather than simplicity. From a system-engineering perspective, a two-stroke engine is not just a power source; it is a multi-domain subsystem that tightly couples mechanical, thermal, fluid, control, and operational behaviors.
+Unlike electric propulsion, gasoline propulsion converts chemical energy directly into mechanical shaft power without an intermediate electrical energy buffer. This architectural difference fundamentally changes how the system behaves under load, during transients, and in failure scenarios.
+At system level, a gasoline two-stroke engine provides; continuous shaft power over long durations, high energy density via liquid fuel and relatively contant power capability independent of battery state. However it also introduces; combustion dynamics, vibration and mechanical fatique, thermal management requirements and fuel delivery and ignition dependencies. This makes gasoline propulsion achitecturally more complex than electric propulsion.</p>
+<h3 id="21-torque-and-speed-characteristics-in-system-view">2.1 Torque and Speed Characteristics in System View<a class="headerlink" href="#21-torque-and-speed-characteristics-in-system-view" title="Permanent link">&para;</a></h3>
+<p>A two-stroke engine:</p>
+<ul>
+<li>cannot generate torque at zero speed</li>
+<li>must be spinning to produce power</li>
+<li>has a defined idle speed below which it stalls</li>
+</ul>
+<p>This means; unlike electric motors, a gasoline engine cannot produce stall torque. 
+This has immediate consequences:</p>
+<ul>
+<li>the engine must be started and kept running</li>
+<li>the propeller load must not force RPM below idle</li>
+<li>Throttle response is inherently slower and less deterministic</li>
+</ul>
+<p>Torque production in two-stroke engines is strongly tied to:</p>
+<ul>
+<li>Engine speed (RPM)</li>
+<li>Combustion efficiency</li>
+<li>Air-fuel mixture quality</li>
+</ul>
+<p>As a result, thrust response is indirect, mediated by engine dynamics rather than direct electromagnetic torque.</p>
+<h3 id="22-throttle-control-in-gasoline-propulsion-only">2.2 Throttle control in gasoline propulsion-only<a class="headerlink" href="#22-throttle-control-in-gasoline-propulsion-only" title="Permanent link">&para;</a></h3>
+<p>Throttle control in gasoline engines is not torque control, it is airflow control.
+When throttle is increased:</p>
+<ul>
+<li>More air enters the engine</li>
+<li>More fuel is drawn or injected</li>
+<li>Combustion pressure rises</li>
+<li>Torque increases indirectly</li>
+</ul>
+<p>This introduces:</p>
+<ul>
+<li>Response lag</li>
+<li>Sensitivity to mixture tuning</li>
+<li>Dependence on ambient conditions (altitude, temperature)</li>
+</ul>
+<p>From a system-engineering standpoint, throttle commands are requests, not guarantees.</p>
+<h3 id="23-fuel-air-mixture-sensitivity">2.3 Fuel – Air Mixture Sensitivity<a class="headerlink" href="#23-fuel-air-mixture-sensitivity" title="Permanent link">&para;</a></h3>
+<p>Two-Stroke engines rely on a correct air-fuel ratio to operate safely.
+If the mixture is:</p>
+<ul>
+<li>too lean → overheating, detonation, engine damage</li>
+<li>too rich → power loss, fouling, unstable combustion</li>
+</ul>
+<p>This sensitivity means that:</p>
+<ul>
+<li>Fuel system behavior directly affects propulsion reliability</li>
+<li>Environmental variations matter</li>
+<li>Manufacturing variability in carburetors or injectors propagates into thrust variability</li>
+</ul>
+<p>System engineers therefore treat fuel mixture control as a propulsion risk driver, not a detail.</p>
+<h3 id="24-thermal-behavior-and-limits">2.4 Thermal Behavior and Limits<a class="headerlink" href="#24-thermal-behavior-and-limits" title="Permanent link">&para;</a></h3>
+<p>Thermal behavior in gasoline engines is more severe and less forgiving than in electric systems.
+Key points:</p>
+<ul>
+<li>Combustion temperatures are very high</li>
+<li>Cooling is typically air-based</li>
+<li>Overheating can occur gradually but lead to catastrophic failure</li>
+</ul>
+<p>Unlike ESCs, which may shut down protectively, engines often:</p>
+<ul>
+<li>Continue operating while damaging themselves</li>
+<li>Fail suddenly after thermal limits are exceeded</li>
+</ul>
+<p>This makes thermal margins and airflow integration critical architectural concerns.</p>
+<h3 id="25-mechanical-vibration-and-structural-coupling">2.5 Mechanical Vibration and Structural Coupling<a class="headerlink" href="#25-mechanical-vibration-and-structural-coupling" title="Permanent link">&para;</a></h3>
+<p>Two-stroke engines generate:</p>
+<ul>
+<li>Cyclic combustion forces</li>
+<li>Rotational imbalance</li>
+<li>High vibration levels </li>
+</ul>
+<p>From a system perspective, vibration:</p>
+<ul>
+<li>Couples into the airframe</li>
+<li>Affects avionics reliability</li>
+<li>Drives mounting and isolation requirements </li>
+</ul>
+<p>Unlike electric motors, vibration is intrinsic and cannot be eliminated—only managed.</p>
+<h3 id="26-failure-modes-and-single-point-behavior">2.6 Failure Modes and Single-Point Behavior<a class="headerlink" href="#26-failure-modes-and-single-point-behavior" title="Permanent link">&para;</a></h3>
+<p>Gasoline propulsion introduces multiple potential single-point failures, including:</p>
+<ul>
+<li>Ignition system failure</li>
+<li>Fuel starvation</li>
+<li>Carburetor or injector malfunction</li>
+<li>Mechanical seizure</li>
+<li>Loss of lubrication (oil–fuel mixture issues) </li>
+</ul>
+<p>In most expendable UAV architectures; The engine and its control unit (ECU or ignition module) together form a single-point failure for propulsion, similar in role to the ESC in electric systems.</p>
+<p>However, gasoline failures are often:</p>
+<ul>
+<li>Progressive rather than instantaneous</li>
+<li>Harder to detect electronically</li>
+<li>Less predictable in timing</li>
+</ul>
+<h3 id="27-operational-and-integration-implications">2.7 Operational and Integration Implications<a class="headerlink" href="#27-operational-and-integration-implications" title="Permanent link">&para;</a></h3>
+<p>From a system-engineering viewpoint, gasoline propulsion affects:</p>
+<ul>
+<li>Ground procedures (fueling, priming, starting)</li>
+<li>Launch sequencing</li>
+<li>Abort logic</li>
+<li>Safety envelopes</li>
+</ul>
+<p>Electric propulsion is largely “power on → thrust available”.
+Gasoline propulsion is procedural, state-dependent, and timing-sensitive.</p>
+<h2 id="3-fuel-system-fundamentals">3.  Fuel System Fundamentals<a class="headerlink" href="#3-fuel-system-fundamentals" title="Permanent link">&para;</a></h2>
+<p>The fuel system is not a support detail of gasoline propulsion. It is a mission-critical enabling subsystem. The fuel system exists to deliver the correct amount of fuel, at the correct time, in the correct condition, to the engine under all anticipated operating conditions.
+Any failure or deviation in the fuel system propagates directly into propulsion instability, thrust loss, or engine damage. Therefore, fuel systems must be analyzed not only for functionality, but also for robustness against operational, environmental, and manufacturing variability.</p>
+<h3 id="31-system-level-function-of-the-fuel-system">3.1 System-Level Function of the Fuel System<a class="headerlink" href="#31-system-level-function-of-the-fuel-system" title="Permanent link">&para;</a></h3>
+<p>At system level, the fuel system must:</p>
+<ul>
+<li>Store fuel safely</li>
+<li>Deliver fuel continuously</li>
+<li>Maintain a stable air-fuel mixture
+-Operate across attitudes, accelerations, and vibrations</li>
+<li>Remain functional throughout the entire mission profile</li>
+</ul>
+<p>This function must be satisfied without pilot intervention, often with no closed-loop sensing, which makes the fuel system a high-risk, low observability subsystem.</p>
+<h3 id="32-core-components-of-a-typical-uav">3.2 Core Components of a Typical UAV<a class="headerlink" href="#32-core-components-of-a-typical-uav" title="Permanent link">&para;</a></h3>
+<p>A simple two-stroke UAV fuel system typically consists of:</p>
+<ul>
+<li>Fuel tank</li>
+<li>Fuel pickup (clunk or fixed pickup)</li>
+<li>Fuel lines and fittings</li>
+<li>Primer bulb or priming mechanism</li>
+<li>Carburetor or injector</li>
+<li>Venting system</li>
+</ul>
+<p>Each of these elements introduces its own failure modes, and none can be treated as optional.</p>
+<h3 id="33-fuel-tank-considerations">3.3 Fuel Tank Considerations<a class="headerlink" href="#33-fuel-tank-considerations" title="Permanent link">&para;</a></h3>
+<p>The fuel tank is not just as a container. It must:</p>
+<ul>
+<li>Supply fuel regardless of UAV attitude</li>
+<li>Avoid fuel starvation during acceleration or maneuvering</li>
+<li>Withstand vibration and pressure changes</li>
+<li>Prevent vapor lock and air ingestion</li>
+</ul>
+<h4 id="what-does-supply-fuel-regardless-of-uav-attitude-mean">What does “supply fuel regardless of UAV attitude mean?<a class="headerlink" href="#what-does-supply-fuel-regardless-of-uav-attitude-mean" title="Permanent link">&para;</a></h4>
+<p>During flight, the fuel inside the tank is subjected to gravity, linear acceleration (launch, throttle changes), angular acceleration (pitch, roll, yaw) and vibration.
+Fuel behaves like a moving liquid mass, not a rigid body. If the fuel pickup momentarily loses contact with liquid fuel, the engine draws air instead of fuel, even if the tank is half full. That is fuel starvation. Fuel tanks are explicitly designed to manage fuel motion.</p>
+<h4 id="what-is-vapor-lock">What is vapor lock?<a class="headerlink" href="#what-is-vapor-lock" title="Permanent link">&para;</a></h4>
+<p>Vapor lock is a condition where fuel vaporizes when it should remain in a liquid state. 
+It happens when: 
+Fuel line heats up: Excessive heat is transferred to the fuel system.
+Pressure drops: This can be due to high altitude, suction issues, or overly long fuel hoses.
+Fuel begins to boil: The combination of heat and low pressure reaches the fuel's boiling point.
+All of this results in vapor bubbles forming inside the fuel lines. Since carburetors and injectors are designed to process liquid fuel, and vapor does not flow or pump as effectively, the fuel supply becomes erratic. This typically occurs during hot weather, extended high-load operations, or due to poor hose routing (e.g., lines placed too close to exhaust components).</p>
+<h4 id="what-is-air-ingestion">what is air ingestion?<a class="headerlink" href="#what-is-air-ingestion" title="Permanent link">&para;</a></h4>
+<p>Air ingestion refers to the entry of air into the fuel line. This typically occurs when the fuel pickup (or clunk) becomes exposed to the air, often due to fuel sloshing inside the tank during maneuvers. It can also be caused by loose or cracked hoses, or faulty tank venting. As a result, the system draws in air instead of fuel. When this happens, the fuel-air mixture suddenly becomes "lean," causing the engine to sputter, lose RPM, or even stall completely.</p>
+<h3 id="34-fuel-pickup-and-attitude-sensitivity">3.4 Fuel Pickup and Attitude Sensitivity<a class="headerlink" href="#34-fuel-pickup-and-attitude-sensitivity" title="Permanent link">&para;</a></h3>
+<p>Because UAVs operate in varying orientations, the fuel pickup must remain submerged in fuel.
+Typical solutions include:</p>
+<ul>
+<li>Weighted flexible pickup (“clunk”)</li>
+<li>Carefully positioned fixed pickup for limited maneuver envelopes</li>
+</ul>
+<p>If the pickup draws air instead of fuel, the engine may:</p>
+<ul>
+<li>Hesitate</li>
+<li>Lose RPM</li>
+<li>Stop completely</li>
+</ul>
+<p>This makes fuel pickup behavior a dynamic interface problem, not a static design detail.</p>
+<h3 id="35-fuel-lines-fittings-and-leakage-risk">3.5 Fuel lines, fittings, and leakage risk<a class="headerlink" href="#35-fuel-lines-fittings-and-leakage-risk" title="Permanent link">&para;</a></h3>
+<p>Fuel lines are deceptively simple but system-critical.
+They must:</p>
+<ul>
+<li>Resist fuel chemistry</li>
+<li>Withstand vibration</li>
+<li>Maintain sealing over temperature changes</li>
+<li>
+<p>A partially collapsed or leaking fuel line does not always cause immediate failure. Instead, it may:</p>
+</li>
+<li>
+<p>Lean the mixture gradually</p>
+</li>
+<li>Increase engine temperature</li>
+<li>Trigger progressive damage</li>
+<li>This links fuel lines directly to the “progressive rather than instantaneous” failure behavior.</li>
+</ul>
+<h3 id="36-priming-and-starting-dependency">3.6 Priming and Starting Dependency<a class="headerlink" href="#36-priming-and-starting-dependency" title="Permanent link">&para;</a></h3>
+<p>Unlike electric propulsion, gasoline engines require fuel to already be present at the carburetor during start.
+Priming mechanisms exist to:</p>
+<ul>
+<li>Remove air from fuel lines</li>
+<li>Ensure combustible mixture during ignition</li>
+</ul>
+<p>Improper priming leads to:</p>
+<ul>
+<li>Failed start</li>
+<li>Flooding</li>
+<li>Unstable idle</li>
+</ul>
+<p>This introduces state-dependent and procedural dependency into propulsion availability.</p>
+<h3 id="37-carburetion-and-mixture-stability">3.7 Carburetion and Mixture Stability<a class="headerlink" href="#37-carburetion-and-mixture-stability" title="Permanent link">&para;</a></h3>
+<p>Most small UAV engines use simple carburetors, not closed-loop injection systems.
+This means:</p>
+<ul>
+<li>Mixture depends on airflow, pressure, and fuel head</li>
+<li>Altitude and temperature directly affect mixture</li>
+<li>Manufacturing tolerances affect needle settings</li>
+</ul>
+<p>The fuel system therefore becomes a control-quality limiter for propulsion.</p>
+<h3 id="38-fuel-system-failure-modes">3.8 Fuel System Failure Modes<a class="headerlink" href="#38-fuel-system-failure-modes" title="Permanent link">&para;</a></h3>
+<p>Typical fuel-system-driven failures include:</p>
+<ul>
+<li>Fuel starvation</li>
+<li>Vapor lock</li>
+<li>Air ingestion</li>
+<li>Leakage</li>
+<li>Blockage or contamination</li>
+<li>Improper venting</li>
+</ul>
+<p>Many of these failures:</p>
+<ul>
+<li>Develop gradually</li>
+<li>Are not electronically detectable</li>
+<li>Manifest first as thrust instability</li>
+</ul>
+<p>Thus, the fuel system is often a hidden single-point contributor to propulsion loss.</p>
+<h3 id="39-interfaces-with-other-subsystems">3.9 Interfaces with Other Subsystems<a class="headerlink" href="#39-interfaces-with-other-subsystems" title="Permanent link">&para;</a></h3>
+<p>The fuel system interfaces with:</p>
+<ul>
+<li>Propulsion (engine)</li>
+<li>Structure (tank mounting, vibration transmission)</li>
+<li>Thermal environment (fuel temperature, vaporization)</li>
+<li>Operations (fueling, priming, storage)</li>
+</ul>
+<p>These interfaces must be anticipated at architecture definition time.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
