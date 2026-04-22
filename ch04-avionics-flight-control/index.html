@@ -724,7 +724,7 @@
 <p>The FCC also acts as the system safety gatekeeper. It monitors sensor validity, power levels, communication status, and internal timing. When abnormal conditions are detected—such as loss of GNSS, excessive attitude error, or brown-out risk—the FCC enforces predefined responses. These responses may include mode changes, limiting control outputs, or executing termination logic in expendable systems.</p>
 <p>In terms of physical implementation, the FCC is typically a compact embedded computer built around a microcontroller (MCU) or system-on-chip (SoC), running a real-time operating system (RTOS). Common examples in the UAV industry range from dedicated autopilot boards (with integrated IMU, barometer, and power regulation) to custom embedded designs.</p>
 <p>However, from a systems-engineering viewpoint, the physical form of the FCC is less important than its functional responsibilities and interfaces. Whether it is a commercial autopilot or a custom board, its role in the system architecture remains fundamentally the same.</p>
-<p><img alt="processing architecture" src="fig_4_3.png" /></p>
+<p><img alt="processing architecture" src="fig_4_2.png" /></p>
 <p><em>Figure 4.2 — Processing Architecture — A Brief Comparison</em></p>
 <p>In expendable UAVs — systems designed for a single mission with no recovery — FCC selection and configuration prioritize robustness and simplicity over flexibility. Advanced features such as adaptive control, complex redundancy management, or high-level autonomy are often unnecessary.</p>
 <p>Instead, the FCC must:</p>
@@ -735,16 +735,17 @@
 </ul>
 <p>Predictable failure behavior is as important as normal operation in expendable system design. This is a key systems-engineering mindset shift from general aviation thinking.</p>
 <p>In summary, the Flight Control Computer is the decision core of the UAV. It transforms sensor measurements into understanding, understanding into commands, and commands into physical motion. </p>
-<p><img alt="summary" src="fig_4_4.png" /></p>
-<p><em>Figure 4.3 — FCC's roles as a summary</em></p>
+<p><img alt="summary" src="fig_4_3.png" /></p>
+<p><em>Figure 4.3 — FCC functional roles summary</em></p>
 <p>It is simultaneously a data hub, a control engine, a mode manager, and a safety monitor. Every design decision in the avionics architecture — sensor selection, interface choices, redundancy philosophy — is ultimately evaluated against what the FCC needs to do its job correctly.</p>
 <h4 id="what-is-nested-control-loops-in-a-fcc">What is nested control loops in a FCC?<a class="headerlink" href="#what-is-nested-control-loops-in-a-fcc" title="Permanent link">&para;</a></h4>
-<p>A FCC doesn't control the aircraft with a single calculation. Instead, it runs several control loops simultaneously - one inside the other, like nested layers. Each layer has a specific job and runs at its own speed.</p>
-<p><img alt="nested control loops" src="fig_4_2.png" /></p>
-<p><em>Figure 4.4 — nested control loops</em></p>
+<p>An FCC doesn't control the aircraft with a single calculation. Instead, it runs several control loops simultaneously - one inside the other, like nested layers. Each layer has a specific job and runs at its own speed.</p>
+<p><img alt="nested control loops" src="fig_4_4.png" /></p>
+<p><em>Figure 4.4 — Nested control loops in the FCC</em></p>
 <h2 id="2-inertial-sensors-imu">2. Inertial Sensors (IMU)<a class="headerlink" href="#2-inertial-sensors-imu" title="Permanent link">&para;</a></h2>
 <p>An Inertial Measurement Unit, usually called an IMU, is the part of the avionics system that allows an aircraft to sense its own motion without relying on any external references. It works entirely by observing how the vehicle rotates and how forces act on it. Because it does not depend on satellites, radio signals, or the environment, the IMU is the most fundamental sensor used to keep an aircraft stable.</p>
 <p>An IMU is made of two main types of sensors: gyroscopes and accelerometers. These sensors do not measure position, altitude, or direction directly. Instead, they measure very basic physical quantities — rotation rate and specific force —  and the flight control computer uses those measurements to infer how the aircraft is oriented and how it is moving.</p>
+<p>In some systems and documentation, the inertial measurement unit is referred to as an INS — Inertial Navigation System — rather than an IMU. Strictly speaking, an IMU is the hardware unit containing the gyroscopes and accelerometers, while an INS is a complete system that includes the IMU hardware plus the navigation algorithms that process its outputs into position, velocity, and attitude estimates. In practice, the two terms are often used interchangeably in UAV system documentation, particularly when the sensor unit includes its own onboard processing. Throughout this chapter, the term IMU is used to refer to the inertial sensor hardware and its immediate outputs — rotation rates and specific force — without implying an onboard navigation processor.</p>
 <p>Nearly all UAV-grade IMUs today are built using MEMS technology.</p>
 <h4 id="what-is-mems">What is MEMS?<a class="headerlink" href="#what-is-mems" title="Permanent link">&para;</a></h4>
 <p>MEMS stands for Micro-Electro-Mechanical Systems. A MEMS sensor is a microscopic mechanical structure — typically a tiny mass suspended on flexible beams — etched directly into a silicon chip using the same manufacturing processes used to make computer processors. When the chip moves or rotates, the tiny mass deflects. That deflection changes an electrical signal, which is read by the chip's electronics and converted into a measurement. An entire MEMS IMU — containing three gyroscopes and three accelerometers — can fit on a chip a few millimeters across and weigh less than a gram. This makes MEMS IMUs ideal for UAV applications where size, weight, and power consumption are tightly constrained. The downside of small sensing masses is that MEMS sensors are more susceptible to noise, vibration, and temperature-induced errors than their larger, laboratory-grade counterparts.</p>
@@ -899,7 +900,7 @@ Sensor fusion — the mathematical process of combining IMU data with GNSS, air 
 <p>Having many satellites visible is beneficial, but the geometric arrangement of those satellites matters just as much as their number. If any visible satellites are clustered in one region of the sky, the intersection of their pseudorange spheres is poorly conditioned - small ranging errors produce large position errors. If satellites are spread evenly across the sky, the geometry is well conditioned and the same ranging errors produce small position errors.</p>
 <p>This geometric quality is quantified by a parameter called Dilution of Precision, or DOP. DOP is a dimensionless number: lower values mean better geometry. HDOP refers specifically to horizontal geometry, PDOP to three-dimensional position geometry, and VDOP to vertical geometry. Practical thresholds used in UAV avionics are typically: HDOP below 1.5 is excellent, below 2.5 is acceptable, above 3.0 triggers warnings or navigation hold. The diagram below contrasts good and poor satellite geometry.</p>
 <p><img alt="DOP geometry comparison" src="fig_4_12.png" /></p>
-<p><em>Figure 4.12 — DOP geometry comparison - good vs poor satellite geometry</em></p>
+<p><em>Figure 4.12 — DOP geometry comparison —  good vs poor satellite geometry</em></p>
 <h2 id="4-air-data-sensors">4. Air Data Sensors<a class="headerlink" href="#4-air-data-sensors" title="Permanent link">&para;</a></h2>
 <p>Air data sensors are used to determine how the aircraft is moving relative to the surrounding air, rather than relative to the Earth. This distinction is fundamental. While GNSS tells the aircraft where it is over the ground and how fast it is moving across the Earth's surface, air data sensors describe the aerodynamic state of the aircraft - which directly governs lift, drag, stall margin, and controllability.</p>
 <p>The most common air data sensors in small fixed-wing UAVs are the pitot system and the barometric pressure sensor. Together, they allow the avionics system to estimate airspeed and pressure altitude - two quantities that cannot be obtained reliably from inertial or GNSS sensors alone.</p>
@@ -1162,12 +1163,12 @@ Sensor fusion — the mathematical process of combining IMU data with GNSS, air 
 <p>SPI stands for Serial Peripheral Interface. It is a faster, synchronous interface used for high-speed, short-distance communication between the FCC and sensors that need to transfer data quickly - most notably the IMU.</p>
 <p>Unlike UART, SPI uses a shared clock signal. The FCC generates a clock pulse, and data is transferred in synchronization with that clock. This makes SPI faster and more reliable than UART for high-rate sensor data.</p>
 <p><img alt="Description of four wires of SPI" src="fig_4_18.png" /></p>
-<p><em>Figure 4.18 — four wires of SPI</em></p>
+<p><em>Figure 4.18 — SPI interface — four signal wires</em></p>
 <h4 id="master-and-slave">Master and Slave<a class="headerlink" href="#master-and-slave" title="Permanent link">&para;</a></h4>
 <p>SPI uses a master-slave architecture. The FCC is always the master - it controls the clock and initiates all communication. The sensor is the slave - it only responds when the master addresses it. This means sensors cannot spontaneously send data to the FCC; the FCC must actively request it. </p>
 <p>The CS (Chip Select) wire allows one FCC to communicate with multiple sensors on the same SPI bus. Each sensor has its own CS line. The FCC pulls one CS line low to select that sensor, communicates with it, then releases it before selecting another.</p>
 <p><img alt="An example of CS wires" src="fig_4_19.png" /></p>
-<p><em>Figure 4.19 — An example of CS wires</em></p>
+<p><em>Figure 4.19 — SPI chip select — multiple sensors on one bus</em></p>
 <h4 id="where-is-spi-used-in-uav-avionics">Where is SPI used in UAV avionics?<a class="headerlink" href="#where-is-spi-used-in-uav-avionics" title="Permanent link">&para;</a></h4>
 <p>SPI is the standard interface for:</p>
 <ul>
@@ -1579,7 +1580,7 @@ Sensor fusion — the mathematical process of combining IMU data with GNSS, air 
 </ul>
 <p>The blending is controlled by a single parameter — commonly called alpha — that determines how much weight is given to each source. A high alpha trusts the gyroscope more; a low alpha trusts the accelerometer more. The diagram below illustrates this concept.</p>
 <p><img alt="Complementary Filter" src="fig_4_22.png" /></p>
-<p><em>Figure 4.22 — Complementary Filter</em></p>
+<p><em>Figure 4.22 — Complementary filter — concept diagram</em></p>
 <h4 id="what-is-a-high-pass-filter">What is a high-pass filter?<a class="headerlink" href="#what-is-a-high-pass-filter" title="Permanent link">&para;</a></h4>
 <p>A high-pass filter is a signal processing tool that passes rapid changes and blocks slow, gradual ones. Think of it like a strainer that only lets fast fluctuations through. Applied to the gyroscope signal, it keeps the rapid rotation information while rejecting the slow drift that accumulates over time.</p>
 <h4 id="what-is-a-low-pass-filter">What is a low-pass filter?<a class="headerlink" href="#what-is-a-low-pass-filter" title="Permanent link">&para;</a></h4>
@@ -1632,7 +1633,7 @@ Sensor fusion — the mathematical process of combining IMU data with GNSS, air 
     MAG --&gt; EKF
     PITOT --&gt; EKF
     EKF --&gt; STATE</code></pre>
-<em>Figure 4.24 — EKF fusion data from all available sensors</em></p>
+*Figure 4.24 — EKF fusing data from all available sensors</p>
 <h3 id="105-observability-and-filter-tuning">10.5 Observability and Filter Tuning<a class="headerlink" href="#105-observability-and-filter-tuning" title="Permanent link">&para;</a></h3>
 <h4 id="observability">Observability<a class="headerlink" href="#observability" title="Permanent link">&para;</a></h4>
 <p>Observability is a concept that describes whether the filter has enough sensor information to estimate a particular quantity. If a quantity is not observable - meaning no sensor provides information about it, even indirectly - the filter cannot estimate it reliably, and its uncertainty for that quantity will grow without bound.</p>
@@ -1644,6 +1645,13 @@ Sensor fusion — the mathematical process of combining IMU data with GNSS, air 
 <li><strong>Measurement noise</strong> - how noisy each sensor is assumed to be. Higher measurement noise means the filter trusts that sensor less during the update step.</li>
 </ul>
 <p>Setting these parameters correctly is called filter tuning. Poor tuning produces an estimator that is either too sluggish - slow to respond to real motion - or too twitchy - reacting excessively to sensor noise. In practice, filter tuning is done empirically using flight log data, comparing the filter's state estimates to known reference values.</p>
+<h3 id="11-avionics-data-flow-system-overview">11. Avionics Data Flow — System Overview<a class="headerlink" href="#11-avionics-data-flow-system-overview" title="Permanent link">&para;</a></h3>
+<p>The diagram below maps the data and control interfaces between all major avionics components of a fixed-wing UAV. It brings together everything covered in this chapter — sensors, flight control computer, actuator interfaces, telemetry, and propulsion control — into a single system-level view.
+Each link is typed by function: data links (blue) carry sensor measurements and system information; control links (green) carry commands from the FCC to actuators and from the ECU to the propulsion system; RF links (dashed) represent wireless connections — the GNSS signal received from satellites and the bidirectional telemetry link between the aircraft and the ground control station.
+Note that power distribution is not shown. The focus here is on information flow — how the aircraft senses its state, makes decisions, and acts on them — which is the core function of the avionics system.
+The propulsion chain — ECU, starter/generator, and engine — is covered in detail in Chapter 3. It appears here because the FCC commands the ECU directly as part of flight control, and because engine health data feeds back into the FCC as part of system health monitoring.</p>
+<p><img alt="avionics data flow" src="fig_4_25.png" /></p>
+<p><em>Figure 4.25 — avionics data flow — system overview</em></p>
 
 
 
