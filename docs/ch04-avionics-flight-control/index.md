@@ -53,7 +53,7 @@ In terms of physical implementation, the FCC is typically a compact embedded com
 
 However, from a systems-engineering viewpoint, the physical form of the FCC is less important than its functional responsibilities and interfaces. Whether it is a commercial autopilot or a custom board, its role in the system architecture remains fundamentally the same.
 
-![processing architecture](fig_4_3.png)
+![processing architecture](fig_4_2.png)
 
 *Figure 4.2 — Processing Architecture — A Brief Comparison*
 
@@ -69,25 +69,27 @@ Predictable failure behavior is as important as normal operation in expendable s
 
 In summary, the Flight Control Computer is the decision core of the UAV. It transforms sensor measurements into understanding, understanding into commands, and commands into physical motion. 
 
-![summary](fig_4_4.png)
+![summary](fig_4_3.png)
 
-*Figure 4.3 — FCC's roles as a summary*
+*Figure 4.3 — FCC functional roles summary*
 
 It is simultaneously a data hub, a control engine, a mode manager, and a safety monitor. Every design decision in the avionics architecture — sensor selection, interface choices, redundancy philosophy — is ultimately evaluated against what the FCC needs to do its job correctly.
 
 #### What is nested control loops in a FCC?
 
-A FCC doesn't control the aircraft with a single calculation. Instead, it runs several control loops simultaneously - one inside the other, like nested layers. Each layer has a specific job and runs at its own speed.
+An FCC doesn't control the aircraft with a single calculation. Instead, it runs several control loops simultaneously - one inside the other, like nested layers. Each layer has a specific job and runs at its own speed.
 
-![nested control loops](fig_4_2.png)
+![nested control loops](fig_4_4.png)
 
-*Figure 4.4 — nested control loops*
+*Figure 4.4 — Nested control loops in the FCC*
 
 ## 2. Inertial Sensors (IMU)
 
 An Inertial Measurement Unit, usually called an IMU, is the part of the avionics system that allows an aircraft to sense its own motion without relying on any external references. It works entirely by observing how the vehicle rotates and how forces act on it. Because it does not depend on satellites, radio signals, or the environment, the IMU is the most fundamental sensor used to keep an aircraft stable.
 
 An IMU is made of two main types of sensors: gyroscopes and accelerometers. These sensors do not measure position, altitude, or direction directly. Instead, they measure very basic physical quantities — rotation rate and specific force —  and the flight control computer uses those measurements to infer how the aircraft is oriented and how it is moving.
+
+In some systems and documentation, the inertial measurement unit is referred to as an INS — Inertial Navigation System — rather than an IMU. Strictly speaking, an IMU is the hardware unit containing the gyroscopes and accelerometers, while an INS is a complete system that includes the IMU hardware plus the navigation algorithms that process its outputs into position, velocity, and attitude estimates. In practice, the two terms are often used interchangeably in UAV system documentation, particularly when the sensor unit includes its own onboard processing. Throughout this chapter, the term IMU is used to refer to the inertial sensor hardware and its immediate outputs — rotation rates and specific force — without implying an onboard navigation processor.
 
 Nearly all UAV-grade IMUs today are built using MEMS technology.
 
@@ -277,7 +279,7 @@ This geometric quality is quantified by a parameter called Dilution of Precision
 
 ![DOP geometry comparison](fig_4_12.png)
 
-*Figure 4.12 — DOP geometry comparison - good vs poor satellite geometry*
+*Figure 4.12 — DOP geometry comparison —  good vs poor satellite geometry*
 
 
 ## 4. Air Data Sensors
@@ -647,7 +649,7 @@ Unlike UART, SPI uses a shared clock signal. The FCC generates a clock pulse, an
 
 ![Description of four wires of SPI](fig_4_18.png)
 
-*Figure 4.18 — four wires of SPI*
+*Figure 4.18 — SPI interface — four signal wires*
 
 #### Master and Slave
 
@@ -657,7 +659,7 @@ The CS (Chip Select) wire allows one FCC to communicate with multiple sensors on
 
 ![An example of CS wires](fig_4_19.png)
 
-*Figure 4.19 — An example of CS wires*
+*Figure 4.19 — SPI chip select — multiple sensors on one bus*
 
 #### Where is SPI used in UAV avionics?
 
@@ -931,7 +933,7 @@ The blending is controlled by a single parameter — commonly called alpha — t
 
 ![Complementary Filter](fig_4_22.png)
 
-*Figure 4.22 — Complementary Filter*
+*Figure 4.22 — Complementary filter — concept diagram*
 
 #### What is a high-pass filter?
 
@@ -1013,7 +1015,7 @@ graph LR
     PITOT --> EKF
     EKF --> STATE
 ```
-*Figure 4.24 — EKF fusion data from all available sensors*
+*Figure 4.24 — EKF fusing data from all available sensors
 
 ### 10.5 Observability and Filter Tuning
 
@@ -1032,9 +1034,16 @@ Every EKF has tuning parameters that tell it how much to trust each sensor relat
 
 Setting these parameters correctly is called filter tuning. Poor tuning produces an estimator that is either too sluggish - slow to respond to real motion - or too twitchy - reacting excessively to sensor noise. In practice, filter tuning is done empirically using flight log data, comparing the filter's state estimates to known reference values.
 
+### 11. Avionics Data Flow — System Overview
 
+The diagram below maps the data and control interfaces between all major avionics components of a fixed-wing UAV. It brings together everything covered in this chapter — sensors, flight control computer, actuator interfaces, telemetry, and propulsion control — into a single system-level view.
+Each link is typed by function: data links (blue) carry sensor measurements and system information; control links (green) carry commands from the FCC to actuators and from the ECU to the propulsion system; RF links (dashed) represent wireless connections — the GNSS signal received from satellites and the bidirectional telemetry link between the aircraft and the ground control station.
+Note that power distribution is not shown. The focus here is on information flow — how the aircraft senses its state, makes decisions, and acts on them — which is the core function of the avionics system.
+The propulsion chain — ECU, starter/generator, and engine — is covered in detail in Chapter 3. It appears here because the FCC commands the ECU directly as part of flight control, and because engine health data feeds back into the FCC as part of system health monitoring.
 
+![avionics data flow](fig_4_25.png)
 
+*Figure 4.25 — avionics data flow — system overview*
 
 
 
