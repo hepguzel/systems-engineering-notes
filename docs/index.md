@@ -2,7 +2,7 @@
 
 This website is a structured self-study project focused on learning and practicing systems engineering through a UAV example.
 
-The content is organized as a day-by-day progression, where each chapter introduces a subsystem or a systems engineering concept, gradually building toward a complete system architecture, and interface definitions.
+Each chapter introduces a subsystem or a systems engineering concept, gradually building toward a complete system architecture, and interface definitions.
 
 ## Purpose
 
@@ -21,6 +21,6 @@ If any content owner prefers their material to be removed, please contact me, an
 
 This is an ongoing project. Content will be continuously updated and refined.
 
-
-
+<br/><br/>
+<br/><br/>
 contact: sys.eng.study.notes@gmail.com

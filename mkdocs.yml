@@ -8,7 +8,7 @@ nav:
       - "Chapter 1 — System Overview": ch01-uav-system-overview/index.md
       - "Chapter 2 — Airframe & Structures": ch02-airframe-structures/index.md
       - "Chapter 3 — Propulsion": ch03-propulsion-system/index.md
-      #- "Chapter 4 — Avionics & Flight Control": ch04-avionics-flight-control.md
+      - "Chapter 4 — Avionics & Flight Control": ch04-avionics-flight-control/index.md
       #- "Chapter 5 — Electrical Power System": ch05-electrical-power.md
       #- "Chapter 6 — Communication & GCS": ch06-comms-gcs.md
       #- "Chapter 7 — Ground Segment & Workflow": ch07-ground-segment-workflow.md
@@ -22,7 +22,11 @@ markdown_extensions:
       toc_depth: 2
   - pymdownx.arithmatex:
       generic: true
-
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 extra_javascript:
   - javascripts/mathjax.js
