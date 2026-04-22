@@ -10,7 +10,7 @@ Another key role of avionics is command interpretation and execution. Commands m
 
 From a system boundary perspective, avionics acts as an integration hub. It aggregates inputs from multiple sensors with different update rates and error characteristics, manages power and signal interfaces, and distributes outputs to actuators and communication links. Because of this central role, avionics design strongly influences wiring architecture, connector choices, redundancy philosophy and overall system complexity.
 
-Finally, avionics is a major driver of system behavior in abnormal conditions. Loss of GNSS, sensor noise, voltage drops, or communication loss are not purely electrical problems; they become system-level events handled by avionics logic. How the UAV reacts - whether it continues, degrades gracefully, or terminates the mission - is defined largely by avionics design choices.
+Finally, avionics is a major driver of system behavior in abnormal conditions. Loss of GNSS, sensor noise, voltage drops, or communication loss are not purely electrical problems; they become system-level events handled by avionics logic. How the UAV reacts — whether it continues, degrades gracefully, or terminates the mission - is defined largely by avionics design choices.
 
 The avionic system's specific roles are:
 
@@ -43,7 +43,7 @@ These functions are tightly coupled and executed in deterministic, cyclic loops 
 
 At the interface level, the FCC is a many-to-many node. It has multiple sensor inputs with different update rates and timing constraints, multiple actuator outputs that require precise and regular signaling, and optional communication links to external systems such as telemetry radios or payload controllers. Because of this, the FCC defines much of the electrical, data and timing architecture of the UAV. When a systems engineer draws the wiring and interface diagram of a UAV, the FCC sits at the center of almost every connection.
 
-The FCC is also responsible for flight mode management. Even in a simple drone, there is more than one operational mode, such as manual stabilization, attitude hold, navigation mode or failsafe behavior. The FCC arbitrates between these modes based on operator commands, mission phase and internal health checks. ensuring that only one coherent control strategy is active at any given time.
+The FCC is also responsible for flight mode management. Even in a simple drone, there is more than one operational mode, such as manual stabilization, attitude hold, navigation mode or failsafe behavior. The FCC arbitrates between these modes based on operator commands, mission phase and internal health checks. This ensures that only one coherent control strategy is active at any given time.
 
 From a control standpoint, the FCC closes multiple nested loops. At the lowest level, it stabilizes angular rates and attitudes by commanding control surfaces or motor speeds. At higher levels, it may regulate altitude, airspeed, or trajectory. While the mathematical details are abstracted away in this course, it is important to understand that all control authority ultimately originates from the FCC.
 
@@ -204,11 +204,11 @@ Sensor fusion — the mathematical process of combining IMU data with GNSS, air 
 
 ### 3.1 How GNSS Works
 
-Navigation sensors provide the aircraft with long-term, absolute knowledge of where it is, how fast it is moving, and what time it is, referenced to the Earth. In small UAV systems, this role is almost always fulfilled by a Global Navigation Satellite System receiver, commonly referred to as a GNSS receiver.Unlike inertial sensors, GNSS does not infer motion from internal measurements - it determines position and velocity by observing signals transmitted from satellites orbiting the Earth. The rerm GNSS is an umbrella term. It refers collectively to all satellite-based navigation systems. GPS, GLONASS, Galileo, and BeiDou are each independent GNSS constellations operated by different nations. A GNSS receiver is a device that can listen to one or more of these constellations simultaneously. 
+Navigation sensors provide the aircraft with long-term, absolute knowledge of where it is, how fast it is moving, and what time it is, referenced to the Earth. In small UAV systems, this role is almost always fulfilled by a Global Navigation Satellite System receiver, commonly referred to as a GNSS receiver.Unlike inertial sensors, GNSS does not infer motion from internal measurements - it determines position and velocity by observing signals transmitted from satellites orbiting the Earth. The term GNSS is an umbrella term. It refers collectively to all satellite-based navigation systems. GPS, GLONASS, Galileo, and BeiDou are each independent GNSS constellations operated by different nations. A GNSS receiver is a device that can listen to one or more of these constellations simultaneously. 
 
 #### Pseudorange and position
 
-A GNSS receiver estimates position by measuring the travel time of radio signals sent from multiple satellites. Each satellite continuously broadcasts a precisely time-stamped signal that includes its own orbital position. By comparing the transmission time encoded in the signal to the time of reception measured by the receiver's internal clock, the receiver computes the apparent distance to each satellite. This distance measurement is called pseudorange - "pseudo" because it contains an unknown error from the receiver clock offset, which is not as accurate as the satellite's atomic clock. With presudorange measurements from at least four satellites, the receiver can solve a system of equation for four unknowns: latitude, longitude, altitude, and receiver clock offset. The result is an absolute position in an Earth-fixed coordinate system. The diagram below illustrates this geometry.
+A GNSS receiver estimates position by measuring the travel time of radio signals sent from multiple satellites. Each satellite continuously broadcasts a precisely time-stamped signal that includes its own orbital position. By comparing the transmission time encoded in the signal to the time of reception measured by the receiver's internal clock, the receiver computes the apparent distance to each satellite. This distance measurement is called pseudorange - "pseudo" because it contains an unknown error from the receiver clock offset, which is not as accurate as the satellite's atomic clock. With pseudorange measurements from at least four satellites, the receiver can solve a system of equations for four unknowns: latitude, longitude, altitude, and receiver clock offset. The result is an absolute position in an Earth-fixed coordinate system. The diagram below illustrates this geometry.
 
 ![GNSS pseudorange geometry](fig_4_10.png)
 
@@ -226,7 +226,7 @@ Time is a less obvious but equally critical GNSS output. Each satellite carries 
 
 GNSS measurements arrive at much lower rates than inertial measurements - typically 1 to 10 Hz for standard receivers, and up to 25 Hz for high-rate configurations. This makes GNSS unsuitable for fast control loops. Its role is to correct long-term inertial drift and to enable mission-level navigation functions such as waypoint following and speed regulation.
 
-GNSS performance depends strongly on environmental and installation factors. Signal quality can be degraded by poor antenna placement, airframe shadowing, electromagnetic interference, or limited stallite visibility. Multipath reflections - signals bouncing off surfaces before reaching the antenna - and poor satellite geometry introduce errors that can persist over time.
+GNSS performance depends strongly on environmental and installation factors. Signal quality can be degraded by poor antenna placement, airframe shadowing, electromagnetic interference, or limited satellite visibility. Multipath reflections - signals bouncing off surfaces before reaching the antenna - and poor satellite geometry introduce errors that can persist over time.
 
 The relationship between GNSS and the FCC is cooperative rather than authoritative. The FCC evaluates GNSS data consistency, monitors health indicators. When GNSS is lost or degraded, the aircraft continues to fly using inertial sensing alone for a limited period, with reduced navigation accuracy. In expendable UAVs, loss of GNSS degrades mission performance but does not immediately threaten flight stability - stabilization relies on the IMU, not GNSS.
 
@@ -237,7 +237,7 @@ The relationship between GNSS and the FCC is cooperative rather than authoritati
 GNSS is not a single system. It is a family of independent satellite navigation constellations operated by different nations, each providing global or regional coverage. A modern UAV GNSS receiver is almost always a multi-constellation receiver - it tracks satellites from two or more systems simultaneously. This is a fundamental design choice: more satellites in view means better geometry, higher accuracy, and greater resilience to partial outages or interference. 
 
 
-*Table 3.1 — The four operational global constellations*
+*Table 4.2 — The four operational global constellations*
 
 | System | Operator | Satellites |
 | :----: | :------: | :--------: |
@@ -251,9 +251,9 @@ All GNSS signals are transmitted in the L-band microwave range -roughly 1.1 to 1
 
 #### Multi-constellation receivers
 
-A multi constellation receiver tracks satellites from two or more constellations simultaneously. The practical benefit is a significant increase in the number of visible satellites at any time. A single-constellation GPS receiver in an urban or partially obstructed environment might see 6-8 satellites. A quad-constellation receiver (GPS + GLONAS + Galileo + BeiDou) may see 20 - 30 satellites simultaneously. More satellites improve geometry, reduce DOP (explained in following sections), and provide redundancy - if one constellation experiences interface or signal degradation, the others continue to function.
+A multi constellation receiver tracks satellites from two or more constellations simultaneously. The practical benefit is a significant increase in the number of visible satellites at any time. A single-constellation GPS receiver in an urban or partially obstructed environment might see 6-8 satellites. A quad-constellation receiver (GPS + GLONASS + Galileo + BeiDou) may see 20 - 30 satellites simultaneously. More satellites improve geometry, reduce DOP (explained in following sections), and provide redundancy - if one constellation experiences interference or signal degradation, the others continue to function.
 
-The Sky plot below illustrates the difference in satellite visibility between single and multi-costellation operation.
+The Sky plot below illustrates the difference in satellite visibility between single and multi-constellation operation.
 
 ![Sky plot comparison](fig_4_11.png)
 
@@ -262,7 +262,7 @@ The Sky plot below illustrates the difference in satellite visibility between si
 
 #### Interface to the FCC
 
-A GNSS receiver connects to the FCC via a serial UART interface in almost all small UAV implementations. The receiver outputs either NMEA 0183 sentences - a text bases, human-readable format - or proprietary binary protocol such as UBX (u-blox) or RTCM. Binary protocols are preferred in embedded systems because they are more compact and easier to parse reliably at high rates.
+A GNSS receiver connects to the FCC via a serial UART interface in almost all small UAV implementations. The receiver outputs either NMEA 0183 sentences - a text based, human-readable format - or proprietary binary protocol such as UBX (u-blox) or RTCM. Binary protocols are preferred in embedded systems because they are more compact and easier to parse reliably at high rates.
 
 The receiver update rate is configurable. Standard configurations use 1 to 5 Hz for navigation. High-rate configurations can reach 10 to 25 Hz on modern receivers, which is useful when tightly coupling GNSS with the inertial estimator. The FCC reads position, velocity, fix type, DOP values, and satellite count from the receiver output on every update cycle.
 
@@ -282,17 +282,17 @@ This geometric quality is quantified by a parameter called Dilution of Precision
 
 ## 4. Air Data Sensors
 
-Air data sensors are used to determine how the aircraft is moving relative to the surrounding air, rather than relative to the Earth. This distinction is fundamental. While GNSS tells the aircraft where is is over the ground and how fast it is moving across the Earth's surface, air data sensors describe the aerodynamic state of the aircraft - which directly governs lift, drag, stall margin, and controllability.
+Air data sensors are used to determine how the aircraft is moving relative to the surrounding air, rather than relative to the Earth. This distinction is fundamental. While GNSS tells the aircraft where it is over the ground and how fast it is moving across the Earth's surface, air data sensors describe the aerodynamic state of the aircraft - which directly governs lift, drag, stall margin, and controllability.
 
 The most common air data sensors in small fixed-wing UAVs are the pitot system and the barometric pressure sensor. Together, they allow the avionics system to estimate airspeed and pressure altitude - two quantities that cannot be obtained reliably from inertial or GNSS sensors alone.
 
-Air data sensors are particularly important because aerodynamic forces depend on airspeed, no groundspeed. An aircraft flying into a strong headwind may have a high airspeed but a low groudspeed. The same aircraft flying with a tailwind shows the opposite. Lift, stall margin, and control surface effectiveness all depend on airspeed. Relying on GNSS velocity alone for flight control would be insufficient and potentially dangerous.
+Air data sensors are particularly important because aerodynamic forces depend on airspeed, not groundspeed. An aircraft flying into a strong headwind may have a low groudspeed. The same aircraft flying with a tailwind shows the opposite. Lift, stall margin, and control surface effectiveness all depend on airspeed. Relying on GNSS velocity alone for flight control would be insufficient and potentially dangerous.
 
 ### 4.1 The Pitot-Static System
 
-The pitot-static system is the classical means of measuring airspeed in aviation. It contains of two pressure sensing ports:
+The pitot-static system is the classical means of measuring airspeed in aviation. It consists of two pressure sensing ports:
 
-- The **pitot port** faces directly into the oncoming airflow. It captures total pressure - the sum of static pressure an dynamic pressure. Dynamic pressure is the pressure rise caused by bringing the moving air to rest inside the tube, converting its kinetic energy into pressure.
+- The **pitot port** faces directly into the oncoming airflow. It captures total pressure - the sum of static pressure and dynamic pressure. Dynamic pressure is the pressure rise caused by bringing the moving air to rest inside the tube, converting its kinetic energy into pressure.
 - The **static port** is positioned to measure ambient atmospheric pressure undisturbed by the aircraft's motion. On simple UAV probes, the static port is typically a set of small holes on the side of the pitot tube body, away from the stagnation point.
 
 The difference between total pressure and static pressure is the dynamic pressure. This relationship is expressed by Bernoulli's equation:
@@ -338,7 +338,7 @@ Key parameters a systems engineer evaluates when selecting a differential pressu
 
 - Full-scale pressure range (Pa) - must cover maximum expected dynamic pressure with margin
 - Resolution and noise - determines minimum detectable airspeed change
-- Temperature compensation - MEMS pressure sensors drifr with temperature
+- Temperature compensation - MEMS pressure sensors drift with temperature
 - Interface - I2C or SPI digital output is standard in modern sensors, analog output requires an ADC on the FCC.
 
 ### 4.3 Barometric Altitude - Absolute Pressure Sensor
@@ -357,17 +357,17 @@ In UAV avionics, the barometric altitude sensor serves two main roles:
 
 - Vertical speed estimation - the rate of change of barometric altitude gives a vertical speed (climb or descent rate) estimate. This is sometimes called the barometric variometer output.
 
-The barometric sensor is fast, self-contained, and requires no external signals. Its update rate - typically 25 to 100 Hz in modern MEMS barometers - is much higher than GNSS altitude, is noisier and slower, and has poor vertical accuracy comparted to horizontal. In practice, barometric altitude and GNSS altitude are fused together in the state estimator, with the barometer providing the high-rate signal and GNSS providing long-term drift correction.
+The barometric sensor is fast, self-contained, and requires no external signals. Its update rate - typically 25 to 100 Hz in modern MEMS barometers - is much higher than GNSS altitude, is noisier and slower, and has poor vertical accuracy compared to horizontal. In practice, barometric altitude and GNSS altitude are fused together in the state estimator, with the barometer providing the high-rate signal and GNSS providing long-term drift correction.
 
 ### 4.4 Sensor Errors and Limitations
 
-Air data sensors are subjected to several errors sources that a systems engineer must understand and account for in the system design.
+Air data sensors are subject to several error sources that a systems engineer must understand and account for in the system design.
 
 #### Position error
 
-Position error is caused by the pitot-static probe being located in a region of disturbed airflow. The aircraft itself deforms the local pressure field around it. If the static port is placed where the local pressure differs from true ambient pressure - due to airframe interference, propeller wash, or fuselage curvature - the static pressure reading will be incorrct, and both airspeed and altitude estimates will be in error.
+Position error is caused by the pitot-static probe being located in a region of disturbed airflow. The aircraft itself deforms the local pressure field around it. If the static port is placed where the local pressure differs from true ambient pressure - due to airframe interference, propeller wash, or fuselage curvature - the static pressure reading will be incorrect, and both airspeed and altitude estimates will be in error.
 
-Mitigation: the pitot probe should be mounted on a forward-facing boom, as fas from the fuselage and propeller as practical, in clean undisturbed air. For pusher-propeller configurations, this is easier to achieve than for tractor configurations.
+Mitigation: the pitot probe should be mounted on a forward-facing boom, as far from the fuselage and propeller as practical, in clean undisturbed air. For pusher-propeller configurations, this is easier to achieve than for tractor configurations.
 
 #### Icing
 
@@ -381,7 +381,7 @@ Beyond icing, physical blockage of the pitot or static ports can occur from inse
 
 #### Turbulence and dynamic effects
 
-In turbulent air, dynamic pressure fluctuates rapidly. The pitot sensor output becomes noisy, and the computed airspeed varies. Low-pass filtering is applied in the FCC to smooth airspeed estimates, but excessive filtering introduces lag - a trade-off the systems engineer must tune for the spesific aircraft and mission environment.
+In turbulent air, dynamic pressure fluctuates rapidly. The pitot sensor output becomes noisy, and the computed airspeed varies. Low-pass filtering is applied in the FCC to smooth airspeed estimates, but excessive filtering introduces lag - a trade-off the systems engineer must tune for the specific aircraft and mission environment.
 
 ### 4.5 Air Data Computer (ADC) - concept
 
@@ -393,9 +393,9 @@ In small UAV systems, there is rarely a separate ADC unit. Instead, the ADC func
 
 From a system design perspective, air data sensors occupy a supporting role - they inform and improve the quality of navigation and control, but they are not the primary stabilization sensors. Loss of air data in a fixed-wing UAV typically degrades mission performance rather than immediately causing loss of control. Attitude stabilization continues using inertial sensors. However, airspeed regulation becomes unreliable, stall protection is lost, and altitude hold degrades to GNSS-based altitude control, which is coarser and slower.
 
-ın simple or expendable UAV architectures, the pitot system is sometimes omitted entirely. In those cases the FCC uses GNSS groundspeed as a coarse proxy for airspeed and applies conservative airspeed margins to compensate for wind uncertainty. This is an acceptable trade-off in benign wind conditions but degrades safety margins in strong or variable winds.
+In simple or expendable UAV architectures, the pitot system is sometimes omitted entirely. In those cases the FCC uses GNSS groundspeed as a coarse proxy for airspeed and applies conservative airspeed margins to compensate for wind uncertainty. This is an acceptable trade-off in benign wind conditions but degrades safety margins in strong or variable winds.
 
-When air data included, it improves efficiency, safety margins, and mission robustness - but it also adds system complexity, a physical probe exposed to the environment, pneumatic tubing connections, and additional sensor interfaces. These integration costs must be weighed against the operational requirements.
+When air data is included, it improves efficiency, safety margins, and mission robustness - but it also adds system complexity, a physical probe exposed to the environment, pneumatic tubing connections, and additional sensor interfaces. These integration costs must be weighed against the operational requirements.
 
 ## 5.  Magnetic Heading Sensors (Compass / Magnetometer)
 
@@ -431,9 +431,9 @@ From a system perspective, servo outputs form the final link between avionics an
 
 PWM stands for Pulse Width Modulation. It is a signaling method in which information is encoded in the duration of a pulse rather than its voltage level. The signal alternates between a high state and a low state at a fixed repetition rate. The voltage amplitude stays constant — what varies is how long the signal stays high during each cycle. This duration is called the pulse width. The diagram below shows the basic structure of a PWM signal.
 
-![PWM signal timing diagram](fig_6_1.png)
+![PWM signal timing diagram](fig_4_14.png)
 
-*Figure 6.1 — PWM signal timing diagram*
+*Figure 4.14 — PWM signal timing diagram*
 
 #### Signal parameters
 
@@ -474,7 +474,7 @@ Digital servo bus protocols address this by multiplexing multiple servo channels
 
 **DSM** (Digital Spectrum Modulation), developed by Spektrum, serves the same purpose and is encountered in systems that use Spektrum-compatible RC receivers.
 
-*Table 4.2 — PWM and SBUS as FCC-to-actuator comparison table*
+*Table 4.3 — PWM and SBUS as FCC-to-actuator comparison table*
 
 | Property | PWM | SBUS |
 |---|---|---|
@@ -509,9 +509,9 @@ The servo rail is the dedicated power bus that supplies voltage to all servo out
 
 Control authority refers to the ability of the actuators to produce sufficient aerodynamic effect to achieve the commanded motion. From the avionics perspective, this is not determined by the servo alone — it is a property of the entire chain: servo torque, mechanical linkage stiffness, control surface size, hinge geometry, and aerodynamic loading. The FCC assumes this chain is functional and within its authority limits. Its limits strongly influence control law design and safety margins. The diagram below shows this chain and the points where failure or saturation can occur.
 
-![Actuator chain diagram](fig_6_2.png)
+![Actuator chain diagram](fig_4_15.png)
 
-*Figure 6.2 — Actuator chain diagram*
+*Figure 4.15 — Actuator chain diagram*
 
 ## 7. Telemetry & External Interfaces
 
@@ -529,18 +529,18 @@ A radio modem - sometimes called a telemetry radio or datalink radio - is a devi
 
 Telemetry radios for small UAVs commonly operate in one of three frequency bands:
 - 433 MHz - longer range, better obstacle penetration, used in regions where this band is available for unlicensed use
-- 915 MHz - widely used in the Americas, good balance of range and data range
+- 915 MHz - widely used in the Americas, good balance of range and data rate
 - 2.4 GHz - shorter range, higher data rate potential, more susceptible to interference from Wi-Fi and other devices
 
 Typical telemetry link data rates are low - on the order of 57 kbps or less for standard UAV radio modems. This is sufficient because telemetry messages are small and infrequent compared to, for example, video streaming.
 
 ### 7.2 RC Link vs GCS Datalink
 
-A UAV system typically has two separate radio links operating simultaneously, serving different purposes. Confusing them is a common source of misunderstanding. The Diagram below shows both links and their roles.
+A UAV system typically has two separate radio links operating simultaneously, serving different purposes. Confusing them is a common source of misunderstanding. The diagram below shows both links and their roles.
 
-![UAV communication links diagram](fig_7_1.png)
+![UAV communication links diagram](fig_4_16.png)
 
-*Figure 7.1 — UAV communication links diagram*
+*Figure 4.16 — UAV communication links diagram*
 
 **The RC link** carries manual control commands from the operator to the aircraft — stick positions, mode switches, and safety inputs. It is designed for very low latency, meaning the delay between the operator moving a control input and the aircraft responding must be just a few milliseconds. This is essential for safe manual flight. The RC link typically operates at 2.4 GHz or 900 MHz using protocols such as SBUS or DSM.
 
@@ -580,11 +580,11 @@ The update rate of telemetry messages is configurable in most FCC firmware. Typi
 
 ### 7.6 System-Level Considerations
 
-From a system-dependency standpoint, telemetry is treated as non-essential. The flight control computer never assumes that the GCS is available or responsive. All critical control logic, navigation, and safety handling are executed onboard. Telemetry, when present provides situational awareness rather than authority.
+From a system-dependency standpoint, telemetry is treated as non-essential. The flight control computer never assumes that the GCS is available or responsive. All critical control logic, navigation, and safety handling are executed onboard. Telemetry, when present, provides situational awareness rather than authority.
 
-In expendable systems, telemetry is often optional or deliberately limited. Reducing reliance on external communication simplifies system integration, reduces power consumption, and lowers the risk of mission failure due to link loss or interference. In some cases, telemetry is included only during developlement and testing and removed or disabled in operational configurations.
+In expendable systems, telemetry is often optional or deliberately limited. Reducing reliance on external communication simplifies system integration, reduces power consumption, and lowers the risk of mission failure due to link loss or interference. In some cases, telemetry is included only during development and testing and removed or disabled in operational configurations.
 
-External interfaces may also include payload cummunication links, health monitoring ports, or configuration interfaces used before flight. These are similarly treated as secondary to core avionics functions. Their failure may reduce functionality or observability but should not lead to loss of control.
+External interfaces may also include payload communication links, health monitoring ports, or configuration interfaces used before flight. These are similarly treated as secondary to core avionics functions. Their failure may reduce functionality or observability but should not lead to loss of control.
 
 
 ## 8. Interfaces & Integration
@@ -602,7 +602,7 @@ Before discussing specific protocols, it is worth clarifying what an interface a
 
 Think of it like a telephone conversation. The physical layer is the telephone line and the sound waves - the medium through which communication happens. The protocol is the social convention.
 
-In UAV avionics, the most common interface protocols are UART, SPI, I2C, and CAN. Each was designed for diffent purposes and has different strengths.
+In UAV avionics, the most common interface protocols are UART, SPI, I2C, and CAN. Each was designed for different purposes and has different strengths.
 
 ### 8.2 UART
 
@@ -612,28 +612,28 @@ UART stands for Universal Asynchronous Receiver-Transmitter. It is the simplest 
 
 UART is a **point-to-point** interface - it connects exactly two devices directly to each other. One device transmits on a wire called TX (transmit), the other receives on a wire called RX (receive). The two wires are crossed - the TX of one device connects to the RX of the other, and vice versa.
 
-![UART connection](fig_8_1.png)
+![UART connection](fig_4_17.png)
 
-*Figure 8.1 — UART connection*
+*Figure 4.17 — UART connection*
 
 #### How does it work?
 
-UART is asynchronous - meaning there is no shared clock signal between the two devices. Instead, both devices agree in advance on a speed, called the bound rate, measured in bits per second. Common baud rates in UAV systems are 9600, 57600, and 115200 baud. As long as both devices use the same baud rate, they can understand each other.
+UART is asynchronous - meaning there is no shared clock signal between the two devices. Instead, both devices agree in advance on a speed, called the boud rate, measured in bits per second. Common baud rates in UAV systems are 9600, 57600, and 115200 baud. As long as both devices use the same baud rate, they can understand each other.
 
 When a device wants to send a byte of data, it pulls the line low for one bit period - this is called the start bit, and it tells the receiver that data is coming. Then the 8 data bits follow, one by one, at the agreed rate. A stop bit at the end signals the byte is complete.
 
 #### What is a baud rate?
 
-Baud rate is the number of signal changes per second on a communication line, which is simple UART corresponds directly to bits per second. A baud rate of 115200 means 115,200 bits are transmitted every second. At this rate, one byte (8 bits plus start and stop bits = 10 bits total) takes approximately 87 microseconds to transmit.
+Baud rate is the number of signal changes per second on a communication line, which in simple UART corresponds directly to bits per second. A baud rate of 115200 means 115,200 bits are transmitted every second. At this rate, one byte (8 bits plus start and stop bits = 10 bits total) takes approximately 87 microseconds to transmit.
 
 #### Where is UART used in UAV avionics?
 
 UART is the standard interface for:
 
-- GNSS receiver ⟶ FCC (tansmitting NMEA or UBX position data)
+- GNSS receiver ⟶ FCC (transmitting NMEA or UBX position data)
 - Telemetry radio ↔ FCC (MAVLink messages in both directions)
 - RC receiver ⟶ FCC (SBUS or DSM protocol)
-- EXternal companion computers ⟶ FCC
+- External companion computers ⟶ FCC
 
 UART is simple, robust, and universally supported. Its limitation is that it is point-to-point - each UART connection requires dedicated pins on the FCC, and the FCC typically has a limited number of UART ports.
 
@@ -645,19 +645,19 @@ SPI stands for Serial Peripheral Interface. It is a faster, synchronous interfac
 
 Unlike UART, SPI uses a shared clock signal. The FCC generates a clock pulse, and data is transferred in synchronization with that clock. This makes SPI faster and more reliable than UART for high-rate sensor data.
 
-![Description of four wires of SPI](fig_8_2.png)
+![Description of four wires of SPI](fig_4_18.png)
 
-*Figure 8.2 — four wires of SPI*
+*Figure 4.18 — four wires of SPI*
 
 #### Master and Slave
 
-SPI uses a master-slave achitecture. The FCC is always the master - it controls the clock and initiates all communication. The sensor is the slave - it only responds when the master addresses it. This means sensors cannot spontaneously send data to the FCC; the FCC must actively request it. 
+SPI uses a master-slave architecture. The FCC is always the master - it controls the clock and initiates all communication. The sensor is the slave - it only responds when the master addresses it. This means sensors cannot spontaneously send data to the FCC; the FCC must actively request it. 
 
 The CS (Chip Select) wire allows one FCC to communicate with multiple sensors on the same SPI bus. Each sensor has its own CS line. The FCC pulls one CS line low to select that sensor, communicates with it, then releases it before selecting another.
 
-![An example of CS wires](fig_8_3.png)
+![An example of CS wires](fig_4_19.png)
 
-*Figure 8.3 — An example of CS wires*
+*Figure 4.19 — An example of CS wires*
 
 #### Where is SPI used in UAV avionics?
 
@@ -678,9 +678,9 @@ The two wires are:
 - **SCL** - Serial Clock, generated by the master (FCC)
 - **SDA** - Serial Data, shared bidirectional data line
 
-![I2C connection](fig_8_4.png)
+![I2C connection](fig_4_20.png)
 
-*Figure 8.4 — I2C connection*
+*Figure 4.20 — I2C connection*
 
 #### Addressing
 
@@ -692,7 +692,7 @@ This is similar to calling out a name in a room full of people - only the person
 
 I2C uses fewer wires than SPI and allows many devices on the same bus, but it is slower. SPI is faster but requires more wires and a dedicated CS line per device. In practice, UAV FCCs use both - SPI for high-speed sensors like IMU, and I2C for slower sensors like magnetometer, barometer, and airspeed sensor.
 
-*Table 8.1 — I2C and SPI comparison table*
+*Table 4.4 — I2C and SPI comparison table*
 
 |   | I2C | SPI |
 |---|---|---|
@@ -705,13 +705,13 @@ I2C uses fewer wires than SPI and allows many devices on the same bus, but it is
 
 #### What is CAN?
 
-CAN stands for Controller Area Network. It has originally developed for the automotive industry - to allow the many electronic control units in a car to communicate reliably over a singel shared bus, even in the presence of electrical noise and vibration.
+CAN stands for Controller Area Network. It was originally developed for the automotive industry - to allow the many electronic control units in a car to communicate reliably over a single shared bus, even in the presence of electrical noise and vibration.
 
 In UAV avionics, CAN is used when robustness and reliability matter more than simplicity. It is a two-wire differential bus - meaning the signal is encoded as the voltage difference between two wires rather than the voltage on a single wire. This makes it highly resistant to electromagnetic interference.
 
-![CAN Bus connection](fig_8_5.png)
+![CAN Bus connection](fig_4_21.png)
 
-*Figure 8.5 — CAN Bus connection*
+*Figure 4.21 — CAN Bus connection*
 
 #### What is differential signal?
 
@@ -741,7 +741,7 @@ Choosing the right protocol is only part of the integration challenge. The physi
 
 EMI is unwanted electrical noise that couples into signal wires from nearby sources. In a UAV, the main sources of EMI are:
 
-- **Motors and ESCs** - switching large currents at high frequency generates strong electromegnetic fields.
+- **Motors and ESCs** - switching large currents at high frequency generates strong electromagnetic fields.
 - **Power cables** - carrying high current to motors radiates noise
 - **Servo motors** - brush motors generate electrical noise when commutating
 
@@ -765,14 +765,14 @@ A clean grounding strategy means:
 
 #### Connector Integrity
 
-In the UAV environment, vibration is constant. Connectors that are not properly secured will work loose over time, causing intermittent connections that are among the most difficult faults to diagnose. Every connector it the avionics harness should be secured with a friction lock, cable tie, or adhesive as appropriate.
+In the UAV environment, vibration is constant. Connectors that are not properly secured will work loose over time, causing intermittent connections that are among the most difficult faults to diagnose. Every connector in the avionics harness should be secured with a friction lock, cable tie, or adhesive as appropriate.
 
 ### 8.7 Interface Allocation Table
 
-The table below summarizes which interface type connects each avionics component to the FCC. This is the kind of reference a systems engineer produces early in the design process to define the electrical achitecture before ant hardware is selected or wiring begins.
+The table below summarizes which interface type connects each avionics component to the FCC. This is the kind of reference a systems engineer produces early in the design process to define the electrical architecture before ant hardware is selected or wiring begins.
 
 
-*Table 8.2 — Avionics components interface types to the FCC*
+*Table 4.5 — Avionics components interface types to the FCC*
 
 
 | Component | Interface | Direction | Typical data / protocol | Update rate |
@@ -804,7 +804,7 @@ Sensor loss occurs when a sensor stops providing valid data - due to hardware fa
 
 - **IMU loss** - the most critical failure. Without attitude information, stabilization fails. In expendable UAVs, IMU loss typically results in immediate mission termination.
 - **GNSS loss** - navigation degrades. The aircraft can continue flying using inertial sensing alone for a limited period, but position accuracy deteriorates rapidly. The FCC typically switches to a timed or inertially-guided failsafe mode.
-- **Air data loss** - airspeed regulation fails. The FCC falls back to GNSS groundspeed as a coarse substitude. Stall protection is lost, which is a significant safety margin reduction on fixed-wing aircraft.
+- **Air data loss** - airspeed regulation fails. The FCC falls back to GNSS groundspeed as a coarse substitute. Stall protection is lost, which is a significant safety margin reduction on fixed-wing aircraft.
 - **Magnetometer loss** - heading reference degrades. GNSS course over ground substitutes during forward flight. This is generally the least critical sensor loss in terms of immediate flight safety.
 
 #### Link loss
@@ -848,9 +848,9 @@ When a health check fails, the FCC logs the fault, may alert the operator via te
 
 For completeness, it is worth briefly describing how more capable - non-expendable - UAV systems approach redundancy, since a systems engineer may encounter these architectures.
 
-IN general-purpose or high-value UAV systems, redundancy is applied systematically across critical functions.
+In general-purpose or high-value UAV systems, redundancy is applied systematically across critical functions.
 
-- **Dual or triple IMUs** multiple inertial sensors are fused together. If one produces anomalous readings, it is identified through voting - the majority reading is trusted and the outlier is rejected.
+- **Dual or triple IMUs** - multiple inertial sensors are fused together. If one produces anomalous readings, it is identified through voting - the majority reading is trusted and the outlier is rejected.
 - **Dual FCCs** - a primary and a backup flight computer, with automatic switchover on primary failure.
 - **Dual power supplies** - independent power paths for avionics and servos, with automatic switchover.
 - **Redundant communication links** - primary and backup datalinks on different frequency bands.
@@ -867,7 +867,7 @@ This level of redundancy adds significant cost, weight, and integration complexi
 
 The table below presents a structured integration checklist organized by subsystem. It represents the minimum set of verifications a systems engineer should perform before declaring an avionics system ready for flight. Each item identifies what to check, what to look for, and what failure results if the check is skipped.
 
-*Table 9.1 — Integration checklist table*
+*Table 4.6 — Integration checklist table*
 
 | Subsystem | Check Item | What to verify | Failure if skipped |
 |---|---|---|---|
@@ -900,7 +900,7 @@ The result of sensor fusion is not a raw sensor reading. It is the flight contro
 
 The limitations of individual sensors were covered in detail in earlier sections. Brought together, the picture looks like this:
 
-*Table 10.1 — Sensor limitations*
+*Table 4.7 — Sensor limitations*
 
 | Sensor| What it provides | Key limitation |
 |---|---|---|
@@ -929,9 +929,9 @@ The complementary filter exploits this by blending the two signals using frequen
   
 The blending is controlled by a single parameter — commonly called alpha — that determines how much weight is given to each source. A high alpha trusts the gyroscope more; a low alpha trusts the accelerometer more. The diagram below illustrates this concept.
 
-![Complementary Filter](fig_10_1.png)
+![Complementary Filter](fig_4_22.png)
 
-*Figure 10.1 — Complementary Filter*
+*Figure 4.22 — Complementary Filter*
 
 #### What is a high-pass filter?
 
@@ -974,7 +974,7 @@ graph LR
     IMU["IMU — high rate"] -.-> A
     EXT["GNSS / baro / mag"] -.-> B
 ```
-*Figure 10.2 — Two-step cycle of the Kalman Filter*
+*Figure 4.23 — Two-step cycle of the Kalman Filter*
 
 **Predict step** - using the IMU, which updates at high rate, the filter projects the current state estimate forward in time. Between external sensor updates, the filter relies on this prediction to maintain a continuous state estimate. The uncertainty of the estimate grows slightly with each prediction step - reflecting the fact that IMU integration accumulates small errors.
 
@@ -1013,7 +1013,7 @@ graph LR
     PITOT --> EKF
     EKF --> STATE
 ```
-*Figure 10.3 — EKF fusion data from all available sensors*
+*Figure 4.24 — EKF fusion data from all available sensors*
 
 ### 10.5 Observability and Filter Tuning
 
