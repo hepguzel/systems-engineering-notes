@@ -1,0 +1,8 @@
+/* Shift the TOC (right sidebar) further to the right */
+.md-sidebar--secondary {
+    margin-left: 2rem;
+}
+
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+    padding-left: 1rem;
+}
