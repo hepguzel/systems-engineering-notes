@@ -940,7 +940,6 @@ The avionics rail, by contrast, is more tolerant. A flight controller is a digit
 <p>Because energy is transferred in controlled pulses rather than being dropped across a resistive element, very little is wasted as heat. Efficiencies of 85–92% are typical. For high-current rails — such as the servo rail or the main avionics supply — this efficiency advantage directly translates to less heat, smaller components, and longer flight time on a given battery.</p>
 <p><img alt="Switching regulator" src="fig_5_5.png" /></p>
 <p><em>Figure 5.5 — Switching regulator</em></p>
-<p>A switching regulator works on a fundamentally different principle. Rather than continuously dropping excess voltage as heat, it rapidly switches the input on and off — typically at frequencies between tens of thousands and several hundred thousand cycles per second. An inductor and capacitor at the output smooth this pulsed energy into a steady DC voltage.</p>
 <p>The trade-off is switching noise. The rapid on-off switching generates electrical interference that appears as small voltage ripple on the output. This ripple is reduced by the output filter but not entirely eliminated. For analog sensors, this residual noise is unacceptable — which is why switching regulators are not used as the final supply stage for sensitive measurement circuits.</p>
 <h4 id="443-which-to-use-and-when">4.4.3 Which to Use and When<a class="headerlink" href="#443-which-to-use-and-when" title="Permanent link">&para;</a></h4>
 <p>The choice between linear and switching regulation follows from the load requirements:</p>
@@ -981,7 +980,7 @@ The avionics rail, by contrast, is more tolerant. A flight controller is a digit
 <p><em>Figure 5.7 — Wire sizing criteria</em></p>
 <h3 id="52-wire-gauge-standards-awg">5.2 Wire Gauge Standards — AWG<a class="headerlink" href="#52-wire-gauge-standards-awg" title="Permanent link">&para;</a></h3>
 <p>Wire gauge in aviation is most commonly specified using the AWG (American Wire Gauge) system. The numbering is counterintuitive: a lower AWG number means a thicker wire with a larger cross-section and lower resistance.</p>
-<p><strong>Table 5.6 — Typical wire gauge ratings and useage</strong>
+<p><strong>Table 5.6 — Typical wire gauge ratings and usage</strong>
 | AWG | Cross-section (mm²) | Typical current rating | Common use |
 |---|---|---|---|
 | 22 | 0.33 | ~3 A | Signal wires, low-power sensors |
@@ -1089,7 +1088,7 @@ The avionics rail, by contrast, is more tolerant. A flight controller is a digit
 <p>There are two fundamentally different types of EPS interface, and keeping them distinct is essential.</p>
 <h3 id="71-power-interfaces-vs-signal-interfaces">7.1 Power Interfaces vs. Signal Interfaces<a class="headerlink" href="#71-power-interfaces-vs-signal-interfaces" title="Permanent link">&para;</a></h3>
 <p><img alt="power vs.signal interfaces" src="fig_5_16.png" />
-<em>Figure 5.12 — Power vs. signal interfaces</em></p>
+<em>Figure 5.16 — Power vs. signal interfaces</em></p>
 <p><strong>Power interfaces</strong> carry electrical energy from one component to another. They are characterised by voltage, current, and the connector type at the boundary. Examples: battery to PDB, PDB to ESC, regulator to flight controller. The flow is always one direction — from source to load.</p>
 <p><strong>Signal interfaces</strong> carry information — monitoring data about the state of the power system. They do not deliver energy; they deliver numbers. Examples: battery voltage reading to flight controller, current draw measurement to telemetry, power-good signal to avionics. These are typically low-voltage, low-current digital connections.</p>
 <p>The distinction matters because the two types have entirely different failure modes and design requirements. A fault on a power interface — an overcurrent, a voltage sag, a bad connection — directly affects the subsystem being powered. A fault on a signal interface — a missing reading, a corrupted data packet — affects the flight controller's awareness of the power state, but does not directly interrupt power delivery.</p>
